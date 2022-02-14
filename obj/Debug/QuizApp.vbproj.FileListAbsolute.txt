@@ -1,0 +1,13 @@
+F:\QuizApp\obj\Debug\QuizApp.Form1.resources
+F:\QuizApp\obj\Debug\QuizApp.Resources.resources
+F:\QuizApp\obj\Debug\QuizApp.vbproj.GenerateResource.cache
+F:\QuizApp\obj\Debug\QuizApp.vbproj.CoreCompileInputs.cache
+F:\QuizApp\bin\Debug\QuizApp.exe.config
+F:\QuizApp\bin\Debug\QuizApp.exe
+F:\QuizApp\bin\Debug\QuizApp.pdb
+F:\QuizApp\bin\Debug\QuizApp.xml
+F:\QuizApp\obj\Debug\QuizApp.exe
+F:\QuizApp\obj\Debug\QuizApp.xml
+F:\QuizApp\obj\Debug\QuizApp.pdb
+F:\QuizApp\obj\Debug\QuizApp.vbprojAssemblyReference.cache
+F:\QuizApp\obj\Debug\QuizApp.Login.resources
