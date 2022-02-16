@@ -22,6 +22,7 @@ Partial Class Login
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvUsers = New System.Windows.Forms.DataGridView()
@@ -43,7 +44,7 @@ Partial Class Login
         Me.button2 = New System.Windows.Forms.Label()
         Me.label7 = New System.Windows.Forms.Label()
         Me.label6 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.loginBtn = New System.Windows.Forms.Button()
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -113,9 +114,9 @@ Partial Class Login
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtPassword)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Location = New System.Drawing.Point(610, 161)
+        Me.Panel1.Location = New System.Drawing.Point(626, 122)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(415, 337)
+        Me.Panel1.Size = New System.Drawing.Size(399, 376)
         Me.Panel1.TabIndex = 12
         '
         'Panel2
@@ -187,6 +188,7 @@ Partial Class Login
         'pictureBox3
         '
         Me.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pictureBox3.Image = CType(resources.GetObject("pictureBox3.Image"), System.Drawing.Image)
         Me.pictureBox3.Location = New System.Drawing.Point(239, 2)
         Me.pictureBox3.Name = "pictureBox3"
         Me.pictureBox3.Size = New System.Drawing.Size(27, 26)
@@ -221,6 +223,7 @@ Partial Class Login
         'pictureBox2
         '
         Me.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pictureBox2.Image = CType(resources.GetObject("pictureBox2.Image"), System.Drawing.Image)
         Me.pictureBox2.Location = New System.Drawing.Point(239, 3)
         Me.pictureBox2.Name = "pictureBox2"
         Me.pictureBox2.Size = New System.Drawing.Size(27, 27)
@@ -271,23 +274,23 @@ Partial Class Login
         Me.label6.Text = "label6"
         Me.label6.Visible = False
         '
-        'Button3
+        'loginBtn
         '
-        Me.Button3.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(513, 245)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(266, 29)
-        Me.Button3.TabIndex = 63
-        Me.Button3.Text = "&Login"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.loginBtn.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.loginBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.loginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.loginBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed
+        Me.loginBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed
+        Me.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.loginBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.loginBtn.ForeColor = System.Drawing.Color.White
+        Me.loginBtn.Location = New System.Drawing.Point(513, 245)
+        Me.loginBtn.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.loginBtn.Name = "loginBtn"
+        Me.loginBtn.Size = New System.Drawing.Size(266, 29)
+        Me.loginBtn.TabIndex = 63
+        Me.loginBtn.Text = "&Login"
+        Me.loginBtn.UseVisualStyleBackColor = False
         '
         'Login
         '
@@ -300,7 +303,7 @@ Partial Class Login
         Me.Controls.Add(Me.button2)
         Me.Controls.Add(Me.label7)
         Me.Controls.Add(Me.label6)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.loginBtn)
         Me.Controls.Add(Me.label3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -346,5 +349,5 @@ Partial Class Login
     Private WithEvents button2 As Label
     Private WithEvents label7 As Label
     Private WithEvents label6 As Label
-    Friend WithEvents Button3 As Button
+    Friend WithEvents loginBtn As Button
 End Class

@@ -64,7 +64,7 @@ Public Class Login
         PopulateDataGrid()
     End Sub
     Private Sub PopulateDataGrid()
-        Dim constr As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=UsersDB;Integrated Security=true"
+        Dim constr As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=quizzdb;Integrated Security=true"
         Using con As New SqlConnection(constr)
             Using cmd As New SqlCommand("SELECT * FROM Users")
                 Using sda As New SqlDataAdapter()
@@ -85,7 +85,7 @@ Public Class Login
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim constr As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=UsersDB;Integrated Security=true"
+        Dim constr As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=quizzdb;Integrated Security=true"
         Using con As New SqlConnection(constr)
             Using cmd As New SqlCommand("INSERT INTO Users VALUES(@Username, @Password)")
                 cmd.CommandType = CommandType.Text
@@ -101,55 +101,7 @@ Public Class Login
         PopulateDataGrid()
     End Sub
 
-    Private Sub pictureBox1_Click(sender As Object, e As EventArgs) Handles pictureBox1.Click
-
-    End Sub
-
-    Private Sub label4_Click(sender As Object, e As EventArgs) Handles label4.Click
-
-    End Sub
-
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
-    End Sub
-
-    Private Sub selectUser_SelectedIndexChanged(sender As Object, e As EventArgs) Handles selectUser.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub panel3_Paint(sender As Object, e As PaintEventArgs) Handles panel3.Paint
-
-    End Sub
-
-    Private Sub Panel4_Paint(sender As Object, e As PaintEventArgs) Handles Panel4.Paint
-
-    End Sub
-
-    Private Sub button2_Click(sender As Object, e As EventArgs) Handles button2.Click
-
-    End Sub
-
-    Private Sub label7_Click(sender As Object, e As EventArgs) Handles label7.Click
-
-    End Sub
-
-    Private Sub label6_Click(sender As Object, e As EventArgs) Handles label6.Click
-
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
-    End Sub
-
-    Private Sub label3_Click(sender As Object, e As EventArgs) Handles label3.Click
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Pane
-    End Subl1.Paint
 
 
-    Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
 
-    End Sub
 End Class
