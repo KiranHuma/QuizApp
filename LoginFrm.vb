@@ -4,8 +4,24 @@ Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Configuration
 Imports System.Security.Cryptography
+
 Public Class Login
+    Private cmd As New SqlCommand()
+    Private con As New SqlConnection()
+
     Dim cs As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=quizzdb;Integrated Security=True"
+    Public Sub dbaccessconnection()
+        Try
+            Dim connection As New SqlConnection(cs)
+            cmd.Connection = con
+
+            '  MessageBox.Show("Connected");
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            MessageBox.Show("Database not Connected")
+        End Try
+    End Sub
+
     Private Function Encrypt(clearText As String) As String
         Dim EncryptionKey As String = "MAKV2SPBNI99212"
         Dim clearBytes As Byte() = Encoding.Unicode.GetBytes(clearText)
@@ -83,5 +99,57 @@ Public Class Login
         End Using
 
         PopulateDataGrid()
+    End Sub
+
+    Private Sub pictureBox1_Click(sender As Object, e As EventArgs) Handles pictureBox1.Click
+
+    End Sub
+
+    Private Sub label4_Click(sender As Object, e As EventArgs) Handles label4.Click
+
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub selectUser_SelectedIndexChanged(sender As Object, e As EventArgs) Handles selectUser.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub panel3_Paint(sender As Object, e As PaintEventArgs) Handles panel3.Paint
+
+    End Sub
+
+    Private Sub Panel4_Paint(sender As Object, e As PaintEventArgs) Handles Panel4.Paint
+
+    End Sub
+
+    Private Sub button2_Click(sender As Object, e As EventArgs) Handles button2.Click
+
+    End Sub
+
+    Private Sub label7_Click(sender As Object, e As EventArgs) Handles label7.Click
+
+    End Sub
+
+    Private Sub label6_Click(sender As Object, e As EventArgs) Handles label6.Click
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+    End Sub
+
+    Private Sub label3_Click(sender As Object, e As EventArgs) Handles label3.Click
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Pane
+    End Subl1.Paint
+
+
+    Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
+
     End Sub
 End Class
