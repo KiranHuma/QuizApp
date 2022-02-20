@@ -73,11 +73,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="AddQuestionFrm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="AddQuestionFrm.Designer.vb">
+      <DependentUpon>AddQuestionFrm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.vb">
@@ -102,10 +102,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="QuestionRecords.Designer.vb">
+      <DependentUpon>QuestionRecords.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionRecords.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizFrm.Designer.vb">
+      <DependentUpon>QuizFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QuizFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignupFrm.Designer.vb">
+      <DependentUpon>SignupFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SignupFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="AddQuestionFrm.resx">
+      <DependentUpon>AddQuestionFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginFrm.resx">
       <DependentUpon>LoginFrm.vb</DependentUpon>
@@ -115,6 +133,15 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuestionRecords.resx">
+      <DependentUpon>QuestionRecords.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizFrm.resx">
+      <DependentUpon>QuizFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignupFrm.resx">
+      <DependentUpon>SignupFrm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

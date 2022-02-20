@@ -28,23 +28,26 @@ Partial Class Login
         Me.dgvUsers = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtPassword = New System.Windows.Forms.TextBox()
-        Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.label4 = New System.Windows.Forms.Label()
         Me.pictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.label3 = New System.Windows.Forms.Label()
-        Me.selectUser = New System.Windows.Forms.ComboBox()
         Me.panel3 = New System.Windows.Forms.Panel()
         Me.pictureBox3 = New System.Windows.Forms.PictureBox()
         Me.txtPass = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.pictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.txtUser = New System.Windows.Forms.TextBox()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.button2 = New System.Windows.Forms.Label()
         Me.label7 = New System.Windows.Forms.Label()
         Me.label6 = New System.Windows.Forms.Label()
         Me.loginBtn = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.selectUser = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.label3 = New System.Windows.Forms.Label()
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -53,6 +56,7 @@ Partial Class Login
         CType(Me.pictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.pictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label2
@@ -67,7 +71,7 @@ Partial Class Login
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(228, 110)
+        Me.Label1.Location = New System.Drawing.Point(128, 110)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 17)
         Me.Label1.TabIndex = 10
@@ -76,11 +80,11 @@ Partial Class Login
         'dgvUsers
         '
         Me.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvUsers.Location = New System.Drawing.Point(0, 192)
+        Me.dgvUsers.Location = New System.Drawing.Point(171, 192)
         Me.dgvUsers.Name = "dgvUsers"
         Me.dgvUsers.RowHeadersWidth = 51
         Me.dgvUsers.RowTemplate.Height = 24
-        Me.dgvUsers.Size = New System.Drawing.Size(371, 160)
+        Me.dgvUsers.Size = New System.Drawing.Size(200, 118)
         Me.dgvUsers.TabIndex = 9
         '
         'Button1
@@ -94,95 +98,52 @@ Partial Class Login
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(307, 110)
+        Me.txtPassword.Location = New System.Drawing.Point(203, 110)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(64, 22)
+        Me.txtPassword.Size = New System.Drawing.Size(168, 22)
         Me.txtPassword.TabIndex = 7
-        '
-        'txtUsername
-        '
-        Me.txtUsername.Location = New System.Drawing.Point(307, 60)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(64, 22)
-        Me.txtUsername.TabIndex = 6
         '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.dgvUsers)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.txtUsername)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtPassword)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Location = New System.Drawing.Point(626, 122)
+        Me.Panel1.Location = New System.Drawing.Point(414, 40)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(399, 376)
+        Me.Panel1.Size = New System.Drawing.Size(11, 10)
         Me.Panel1.TabIndex = 12
+        Me.Panel1.Visible = False
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Panel2.Controls.Add(Me.label4)
+        Me.Panel2.BackColor = System.Drawing.Color.Indigo
         Me.Panel2.Controls.Add(Me.pictureBox1)
         Me.Panel2.Location = New System.Drawing.Point(12, 12)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(353, 521)
+        Me.Panel2.Size = New System.Drawing.Size(459, 521)
         Me.Panel2.TabIndex = 59
-        '
-        'label4
-        '
-        Me.label4.AutoSize = True
-        Me.label4.Font = New System.Drawing.Font("Trebuchet MS", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label4.ForeColor = System.Drawing.Color.White
-        Me.label4.Location = New System.Drawing.Point(50, 278)
-        Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(225, 54)
-        Me.label4.TabIndex = 1
-        Me.label4.Text = "Quizz App"
         '
         'pictureBox1
         '
         Me.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pictureBox1.Location = New System.Drawing.Point(21, 46)
+        Me.pictureBox1.Image = CType(resources.GetObject("pictureBox1.Image"), System.Drawing.Image)
+        Me.pictureBox1.Location = New System.Drawing.Point(18, 15)
         Me.pictureBox1.Name = "pictureBox1"
-        Me.pictureBox1.Size = New System.Drawing.Size(285, 259)
+        Me.pictureBox1.Size = New System.Drawing.Size(420, 487)
         Me.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pictureBox1.TabIndex = 0
         Me.pictureBox1.TabStop = False
-        '
-        'label3
-        '
-        Me.label3.AutoSize = True
-        Me.label3.BackColor = System.Drawing.Color.Transparent
-        Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.label3.ForeColor = System.Drawing.Color.Red
-        Me.label3.Location = New System.Drawing.Point(994, 9)
-        Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(31, 29)
-        Me.label3.TabIndex = 2
-        Me.label3.Text = "X"
-        '
-        'selectUser
-        '
-        Me.selectUser.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.selectUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.selectUser.Font = New System.Drawing.Font("Trebuchet MS", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.selectUser.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.selectUser.FormattingEnabled = True
-        Me.selectUser.Items.AddRange(New Object() {"User", "Admin"})
-        Me.selectUser.Location = New System.Drawing.Point(513, 85)
-        Me.selectUser.Name = "selectUser"
-        Me.selectUser.Size = New System.Drawing.Size(269, 31)
-        Me.selectUser.TabIndex = 64
         '
         'panel3
         '
         Me.panel3.BackColor = System.Drawing.Color.WhiteSmoke
         Me.panel3.Controls.Add(Me.pictureBox3)
         Me.panel3.Controls.Add(Me.txtPass)
-        Me.panel3.Location = New System.Drawing.Point(513, 179)
+        Me.panel3.Location = New System.Drawing.Point(520, 260)
         Me.panel3.Name = "panel3"
-        Me.panel3.Size = New System.Drawing.Size(269, 32)
+        Me.panel3.Size = New System.Drawing.Size(272, 37)
         Me.panel3.TabIndex = 69
         '
         'pictureBox3
@@ -200,7 +161,7 @@ Partial Class Login
         Me.txtPass.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtPass.Font = New System.Drawing.Font("Trebuchet MS", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPass.ForeColor = System.Drawing.Color.DarkSlateGray
+        Me.txtPass.ForeColor = System.Drawing.Color.Indigo
         Me.txtPass.Location = New System.Drawing.Point(5, 1)
         Me.txtPass.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.txtPass.Multiline = True
@@ -214,10 +175,10 @@ Partial Class Login
         '
         Me.Panel4.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel4.Controls.Add(Me.pictureBox2)
-        Me.Panel4.Controls.Add(Me.txtUser)
-        Me.Panel4.Location = New System.Drawing.Point(513, 126)
+        Me.Panel4.Controls.Add(Me.txtUsername)
+        Me.Panel4.Location = New System.Drawing.Point(520, 207)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(269, 32)
+        Me.Panel4.Size = New System.Drawing.Size(272, 37)
         Me.Panel4.TabIndex = 68
         '
         'pictureBox2
@@ -230,26 +191,26 @@ Partial Class Login
         Me.pictureBox2.TabIndex = 2
         Me.pictureBox2.TabStop = False
         '
-        'txtUser
+        'txtUsername
         '
-        Me.txtUser.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtUser.Font = New System.Drawing.Font("Trebuchet MS", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUser.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.txtUser.Location = New System.Drawing.Point(7, 1)
-        Me.txtUser.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.txtUser.Multiline = True
-        Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(224, 27)
-        Me.txtUser.TabIndex = 46
-        Me.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtUsername.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtUsername.Font = New System.Drawing.Font("Trebuchet MS", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.ForeColor = System.Drawing.Color.Indigo
+        Me.txtUsername.Location = New System.Drawing.Point(7, 1)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.txtUsername.Multiline = True
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(224, 27)
+        Me.txtUsername.TabIndex = 46
+        Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'button2
         '
         Me.button2.AutoSize = True
         Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.button2.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.button2.Location = New System.Drawing.Point(671, 457)
+        Me.button2.ForeColor = System.Drawing.Color.Indigo
+        Me.button2.Location = New System.Drawing.Point(710, 470)
         Me.button2.Name = "button2"
         Me.button2.Size = New System.Drawing.Size(75, 20)
         Me.button2.TabIndex = 67
@@ -258,7 +219,7 @@ Partial Class Login
         'label7
         '
         Me.label7.AutoSize = True
-        Me.label7.Location = New System.Drawing.Point(541, 457)
+        Me.label7.Location = New System.Drawing.Point(580, 470)
         Me.label7.Name = "label7"
         Me.label7.Size = New System.Drawing.Size(131, 17)
         Me.label7.TabIndex = 66
@@ -267,7 +228,7 @@ Partial Class Login
         'label6
         '
         Me.label6.AutoSize = True
-        Me.label6.Location = New System.Drawing.Point(470, 332)
+        Me.label6.Location = New System.Drawing.Point(503, 429)
         Me.label6.Name = "label6"
         Me.label6.Size = New System.Drawing.Size(46, 17)
         Me.label6.TabIndex = 65
@@ -276,7 +237,7 @@ Partial Class Login
         '
         'loginBtn
         '
-        Me.loginBtn.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.loginBtn.BackColor = System.Drawing.Color.Indigo
         Me.loginBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.loginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.loginBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed
@@ -284,19 +245,98 @@ Partial Class Login
         Me.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.loginBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.loginBtn.ForeColor = System.Drawing.Color.White
-        Me.loginBtn.Location = New System.Drawing.Point(513, 245)
+        Me.loginBtn.Location = New System.Drawing.Point(520, 326)
         Me.loginBtn.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.loginBtn.Name = "loginBtn"
-        Me.loginBtn.Size = New System.Drawing.Size(266, 29)
+        Me.loginBtn.Size = New System.Drawing.Size(269, 34)
         Me.loginBtn.TabIndex = 63
         Me.loginBtn.Text = "&Login"
         Me.loginBtn.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(261, 48)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(32, 20)
+        Me.Button3.TabIndex = 70
+        Me.Button3.Text = "Encrypt"
+        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.White
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox2.Font = New System.Drawing.Font("Trebuchet MS", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.ForeColor = System.Drawing.Color.Black
+        Me.TextBox2.Location = New System.Drawing.Point(33, 73)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(227, 32)
+        Me.TextBox2.TabIndex = 47
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TextBox2.Visible = False
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(156, 116)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(73, 28)
+        Me.Button4.TabIndex = 71
+        Me.Button4.Text = "Decrypt"
+        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
+        '
+        'selectUser
+        '
+        Me.selectUser.BackColor = System.Drawing.SystemColors.Control
+        Me.selectUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.selectUser.ForeColor = System.Drawing.Color.Indigo
+        Me.selectUser.FormattingEnabled = True
+        Me.selectUser.Items.AddRange(New Object() {"User", "Admin"})
+        Me.selectUser.Location = New System.Drawing.Point(520, 168)
+        Me.selectUser.Name = "selectUser"
+        Me.selectUser.Size = New System.Drawing.Size(269, 24)
+        Me.selectUser.TabIndex = 72
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(33, 49)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(225, 22)
+        Me.TextBox1.TabIndex = 12
+        Me.TextBox1.Visible = False
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.TextBox2)
+        Me.Panel5.Controls.Add(Me.TextBox1)
+        Me.Panel5.Controls.Add(Me.Button3)
+        Me.Panel5.Controls.Add(Me.Button4)
+        Me.Panel5.Location = New System.Drawing.Point(487, 504)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(10, 10)
+        Me.Panel5.TabIndex = 73
+        '
+        'label3
+        '
+        Me.label3.AutoSize = True
+        Me.label3.BackColor = System.Drawing.Color.Transparent
+        Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.label3.ForeColor = System.Drawing.Color.Red
+        Me.label3.Location = New System.Drawing.Point(843, 12)
+        Me.label3.Name = "label3"
+        Me.label3.Size = New System.Drawing.Size(31, 29)
+        Me.label3.TabIndex = 2
+        Me.label3.Text = "X"
         '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1046, 553)
+        Me.ClientSize = New System.Drawing.Size(886, 553)
+        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.selectUser)
         Me.Controls.Add(Me.panel3)
         Me.Controls.Add(Me.Panel4)
@@ -315,7 +355,6 @@ Partial Class Login
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel3.ResumeLayout(False)
         Me.panel3.PerformLayout()
@@ -323,6 +362,8 @@ Partial Class Login
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.pictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -333,21 +374,24 @@ Partial Class Login
     Friend WithEvents dgvUsers As DataGridView
     Friend WithEvents Button1 As Button
     Friend WithEvents txtPassword As TextBox
-    Friend WithEvents txtUsername As TextBox
-    Friend WithEvents Panel1 As Panel
-    Private WithEvents Panel2 As Panel
-    Private WithEvents label4 As Label
+	Friend WithEvents Panel1 As Panel
+	Private WithEvents Panel2 As Panel
     Private WithEvents pictureBox1 As PictureBox
-    Private WithEvents label3 As Label
-    Private WithEvents selectUser As ComboBox
     Private WithEvents panel3 As Panel
     Private WithEvents pictureBox3 As PictureBox
     Friend WithEvents txtPass As TextBox
     Private WithEvents Panel4 As Panel
     Private WithEvents pictureBox2 As PictureBox
-    Friend WithEvents txtUser As TextBox
+    Friend WithEvents txtUsername As TextBox
     Private WithEvents button2 As Label
     Private WithEvents label7 As Label
     Private WithEvents label6 As Label
     Friend WithEvents loginBtn As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Button4 As Button
+    Friend WithEvents selectUser As ComboBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Panel5 As Panel
+    Private WithEvents label3 As Label
 End Class

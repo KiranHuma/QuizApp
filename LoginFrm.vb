@@ -9,7 +9,7 @@ Public Class Login
     Private cmd As New SqlCommand()
     Private con As New SqlConnection()
 
-    Dim cs As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=quizzdb;Integrated Security=True"
+    Dim cs As String = "Data Source=ADMINRG-CP6AJ00;Initial Catalog=QuizappDB;Integrated Security=True"
     Public Sub dbaccessconnection()
         Try
             Dim connection As New SqlConnection(cs)
@@ -61,36 +61,18 @@ Public Class Login
         Return cipherText
     End Function
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PopulateDataGrid()
-    End Sub
-    Private Sub PopulateDataGrid()
-        Dim constr As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=quizzdb;Integrated Security=true"
-        Using con As New SqlConnection(constr)
-            Using cmd As New SqlCommand("SELECT * FROM Users")
-                Using sda As New SqlDataAdapter()
-                    Dim dt As New DataTable()
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = con
-                    sda.SelectCommand = cmd
-                    sda.Fill(dt)
-                    dgvUsers.DataSource = dt
-                    dt.Columns(1).ColumnName = "Encrypted Password"
-                    dt.Columns.Add("Password")
-                    For Each row As DataRow In dt.Rows
-                        row("Password") = Decrypt(row("Encrypted Password").ToString)
-                    Next
-                End Using
-            End Using
-        End Using
+
     End Sub
 
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim constr As String = "Data Source=DESKTOP-R157FBN;Initial Catalog=quizzdb;Integrated Security=true"
+
+        Dim constr As String = "Data Source=ADMINRG-CP6AJ00;Initial Catalog=UsersDB;Integrated Security=true"
         Using con As New SqlConnection(constr)
             Using cmd As New SqlCommand("INSERT INTO Users VALUES(@Username, @Password)")
                 cmd.CommandType = CommandType.Text
                 cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
-                cmd.Parameters.AddWithValue("@Password", Encrypt(txtPassword.Text.Trim()))
+                cmd.Parameters.AddWithValue("@Password", Encrypt(txtPass.Text.Trim()))
                 cmd.Connection = con
                 con.Open()
                 cmd.ExecuteNonQuery()
@@ -98,10 +80,59 @@ Public Class Login
             End Using
         End Using
 
-        PopulateDataGrid()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        TextBox2.Text = Decrypt(TextBox1.Text)
+    End Sub
+
+    Private Sub loginBtn_Click(sender As Object, e As EventArgs) Handles loginBtn.Click
+        TextBox1.Text = Encrypt(txtPass.Text)
+        If selectUser.Text = "User" Then
+
+            Dim con As New SqlConnection(cs) ' making connection
+            Dim sda As New SqlDataAdapter("SELECT COUNT(*) FROM Users WHERE Username='" & txtUsername.Text & "' AND Password='" & TextBox1.Text & "'", con)
+            ' in above line the program is selecting the whole data from table and the matching it with the user name and password provided by user. 
+            Dim dt As New DataTable() 'this is creating a virtual table
+            sda.Fill(dt)
+            If dt.Rows(0)(0).ToString() = "1" Then
+                Me.Hide()
+                AddQuestionFrm.Show()
+            Else
+                MessageBox.Show("Invalid username or password")
+            End If
+        ElseIf selectUser.Text = "Admin" Then
+            Dim con As New SqlConnection(cs) ' making connection
+            Dim sda As New SqlDataAdapter("SELECT COUNT(*) FROM db_admin WHERE Username='" & txtUsername.Text & "' AND Password='" & TextBox1.Text & "'", con)
+            ' in above line the program is selecting the whole data from table and the matching it with the user name and password provided by user. 
+            Dim dt As New DataTable() 'this is creating a virtual table
+            sda.Fill(dt)
+            If dt.Rows(0)(0).ToString() = "1" Then
+                Me.Hide()
+                Call (New AddQuestionFrm()).Show()
+
+            Else
+                MessageBox.Show("Your username Or password is not match", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                label6.ForeColor = Color.Red
+                label6.Text = " Not succsessfully login "
+            End If
+        Else
+            MessageBox.Show("Select your choice", "ADMIN or USER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+
     End Sub
 
 
+    Private Sub label7_Click(sender As Object, e As EventArgs) Handles label7.Click
+        SignupFrm.Show()
+    End Sub
 
+    Private Sub label3_Click(sender As Object, e As EventArgs) Handles label3.Click
+        End
 
+    End Sub
+
+    Private Sub button2_Click(sender As Object, e As EventArgs) Handles button2.Click
+        SignupFrm.Show()
+    End Sub
 End Class
