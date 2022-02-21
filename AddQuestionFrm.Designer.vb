@@ -49,6 +49,8 @@ Partial Class AddQuestionFrm
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.score_txt = New System.Windows.Forms.TextBox()
+        Me.socre_label = New System.Windows.Forms.Label()
         CType(Me.photo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -325,12 +327,37 @@ Partial Class AddQuestionFrm
         Me.Label2.Text = "noupdate"
         Me.Label2.Visible = False
         '
+        'score_txt
+        '
+        Me.score_txt.BackColor = System.Drawing.Color.White
+        Me.score_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.score_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.score_txt.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.score_txt.Location = New System.Drawing.Point(414, 451)
+        Me.score_txt.Name = "score_txt"
+        Me.score_txt.Size = New System.Drawing.Size(66, 20)
+        Me.score_txt.TabIndex = 39
+        Me.score_txt.Text = "1"
+        '
+        'socre_label
+        '
+        Me.socre_label.AutoSize = True
+        Me.socre_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.socre_label.ForeColor = System.Drawing.Color.White
+        Me.socre_label.Location = New System.Drawing.Point(350, 449)
+        Me.socre_label.Name = "socre_label"
+        Me.socre_label.Size = New System.Drawing.Size(58, 20)
+        Me.socre_label.TabIndex = 38
+        Me.socre_label.Text = "Score"
+        '
         'AddQuestionFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Indigo
         Me.ClientSize = New System.Drawing.Size(1143, 549)
+        Me.Controls.Add(Me.score_txt)
+        Me.Controls.Add(Me.socre_label)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -392,4 +419,6 @@ Partial Class AddQuestionFrm
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents score_txt As TextBox
+    Friend WithEvents socre_label As Label
 End Class

@@ -3,21 +3,15 @@ Imports System.Data.SqlClient   'FOR SQL CONNECTION AND COMMAND.
 
 Imports System.IO
 Public Class QuestionRecords
-    Private bitmap As Bitmap 'for print grid
-    Dim rdr As SqlDataReader
-    Dim provider As String
-    Dim dataFile As String
-    Dim connString As String
-    Dim myConnection As SqlConnection = New SqlConnection
+
     Dim ds As DataSet = New DataSet
     Dim da As SqlDataAdapter
-    Dim tables As DataTableCollection = ds.Tables
-    Dim source1 As New BindingSource()
+
     Dim source2 As New BindingSource()
 
-    Dim con As New SqlClient.SqlConnection
+
     Dim cmd As New SqlClient.SqlCommand
-    Dim dt As New DataTable
+
     Dim cs As String = "Data Source=ADMINRG-CP6AJ00;Initial Catalog=QuizappDB;Integrated Security=True"
 
     Private Sub search_txt()
@@ -98,11 +92,11 @@ Public Class QuestionRecords
             AddQuestionFrm.ans_Txt.Text = questiondate_grid.CurrentRow.Cells(6).Value.ToString
             AddQuestionFrm.topic_Txt.Text = questiondate_grid.CurrentRow.Cells(7).Value.ToString
             AddQuestionFrm.difficulty_Txt.Text = questiondate_grid.CurrentRow.Cells(8).Value.ToString
-            '  AddQuestionFrm.ans_Txt.Text = questiondate_grid.CurrentRow.Cells(9).Value.ToString
+            AddQuestionFrm.score_txt.Text = questiondate_grid.CurrentRow.Cells(9).Value.ToString
             ' Image()
             Dim i As Integer
             i = questiondate_grid.CurrentRow.Index
-            Dim bytes As [Byte]() = (questiondate_grid.Item(9, i).Value)
+            Dim bytes As [Byte]() = (questiondate_grid.Item(10, i).Value)
             Dim ms As New MemoryStream(bytes)
             AddQuestionFrm.photo.Image = Image.FromStream(ms)
             AddQuestionFrm.Show()

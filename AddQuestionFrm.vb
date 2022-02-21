@@ -35,8 +35,8 @@ Public Class AddQuestionFrm
         Try
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "insert into questionsTb(Qno,question,option1,option2,option3,option4,answer,Topic,difficulty,photo)values
-                                                 ('" & question_id.Text & "','" & question_txt.Text & "','" & op1_Txt.Text & "','" & op2_Txt.Text & "','" & op3_Txt.Text & "','" & op4_Txt.Text & "','" & ans_Txt.Text & "','" & topic_Txt.Text & "','" & difficulty_Txt.Text & "',@photo)"
+            cmd.CommandText = "insert into questionsTb(Qno,question,option1,option2,option3,option4,answer,Topic,difficulty,score,photo)values
+                                                 ('" & question_id.Text & "','" & question_txt.Text & "','" & op1_Txt.Text & "','" & op2_Txt.Text & "','" & op3_Txt.Text & "','" & op4_Txt.Text & "','" & ans_Txt.Text & "','" & topic_Txt.Text & "','" & difficulty_Txt.Text & "','" & score_txt.Text & "',@photo)"
 
             Dim ms As New MemoryStream()
             Dim bmpImage As New Bitmap(photo.Image)
@@ -90,36 +90,20 @@ Public Class AddQuestionFrm
             End If
             con.Close()
         Catch ex As Exception
-            MsgBox("Failed:Autoincrement of Transaction ID " & ex.Message)
+            MsgBox("Failed:Autoincrement of Question ID " & ex.Message)
             Me.Dispose()
         End Try
 
     End Sub
 
-    Private Sub getvaluedb()
-        Dim constr As String = cs
-        Using con As SqlConnection = New SqlConnection(constr)
-            Using cmd As SqlCommand = New SqlCommand("Select * from questionsTb where Qno = '" & question_id.Text & "'")
-                cmd.CommandType = CommandType.Text
-                cmd.Connection = con
-                con.Open()
-                Using sdr As SqlDataReader = cmd.ExecuteReader()
-                    sdr.Read()
+    Private Sub addnew()
 
-
-                    question_id.Text = sdr("Qno").ToString()
-                    question_txt.Text = sdr("question").ToString()
-                    op1_Txt.Text = sdr("option1").ToString()
-                    op2_Txt.Text = sdr("option2").ToString()
-                    op3_Txt.Text = sdr("option3").ToString()
-                    op4_Txt.Text = sdr("option4").ToString()
-                    topic_Txt.Text = sdr("Topic").ToString()
-                    ans_Txt.Text = sdr("answer").ToString()
-                    difficulty_Txt.Text = sdr("difficulty").ToString()
-                End Using
-                con.Close()
-            End Using
-        End Using
+        Try
+            Call (New AddQuestionFrm()).Show()
+        Catch ex As Exception
+            MsgBox("Failed:Clear " & ex.Message)
+            Me.Dispose()
+        End Try
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbaccessconnection()
@@ -127,7 +111,7 @@ Public Class AddQuestionFrm
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         questionid()
-        getvaluedb()
+        addnew()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -156,7 +140,7 @@ Public Class AddQuestionFrm
     Private Sub edit()
         Try
             con.Open()
-            cmd.CommandText = ("UPDATE questionsTb SET  question= '" & question_txt.Text & "', option1= '" & op1_Txt.Text & "',option2= '" & op2_Txt.Text & "',option3= '" & op3_Txt.Text & "',option4= '" & op4_Txt.Text & "',answer= '" & ans_Txt.Text & "', Topic= '" & topic_Txt.Text & "',difficulty= '" & difficulty_Txt.Text & "',photo=@photo where Qno=" & question_id.Text & "")
+            cmd.CommandText = ("UPDATE questionsTb SET  question= '" & question_txt.Text & "', option1= '" & op1_Txt.Text & "',option2= '" & op2_Txt.Text & "',option3= '" & op3_Txt.Text & "',option4= '" & op4_Txt.Text & "',answer= '" & ans_Txt.Text & "', Topic= '" & topic_Txt.Text & "',difficulty= '" & difficulty_Txt.Text & "', score='" & score_txt.Text & "', photo=@photo where Qno=" & question_id.Text & "")
             Dim ms As New MemoryStream()
             Dim bmpImage As New Bitmap(photo.Image)
             bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
@@ -185,5 +169,9 @@ Public Class AddQuestionFrm
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
+    End Sub
+
+    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
+        End
     End Sub
 End Class

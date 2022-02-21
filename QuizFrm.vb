@@ -63,7 +63,7 @@ Public Class QuizFrm
 
                 num = cmd.ExecuteScalar + 1
                 question_id.Text = num.ToString
-                getvaluedb()
+                ' getvaluedb()
 
             End If
             con.Close()
@@ -73,7 +73,96 @@ Public Class QuizFrm
         End Try
 
     End Sub
+    Private Sub get_first_row_Id()
 
+        Try
+            dbaccessconnection()
+            Dim command As New SqlCommand(" SELECT TOP 1 * FROM questionsTb where Qno >= '" & question_id.Text & "' AND difficulty='" & difficulty_Txt.Text & "' And Topic ='" & topic_Txt.Text & "'", con)
+            con.Open()
+            cmd.Parameters.Clear()
+            Dim read As SqlDataReader = command.ExecuteReader()
+
+            Do While read.Read()
+                question_id.Text = (read("Qno").ToString())
+
+                question_txt.Text = (read("question").ToString())
+                op1_Txt.Text = (read("option1").ToString())
+                op2_Txt.Text = (read("option2").ToString())
+                op3_Txt.Text = (read("option3").ToString())
+                op4_Txt.Text = (read("option4").ToString())
+                ans_Txt.Text = (read("answer").ToString())
+                topic_Txt.Text = (read("Topic").ToString())
+                difficulty_Txt.Text = (read("difficulty").ToString())
+                Dbquestion_score_txt.Text = (read("score").ToString())
+                ' photo.Text = sdr("photo").ToString()
+                ' get_image()
+
+            Loop
+            read.Close()
+
+        Catch ex As Exception
+            MsgBox("Data Inserted Failed because " & ex.Message)
+            Me.Dispose()
+        Finally
+            con.Close()
+        End Try
+
+
+    End Sub
+    Private Sub finish_question()
+
+        Dim connStr As String = cs
+                Dim query As String = "SELECT COUNT(Qno) FROM questionsTb where difficulty='" & difficulty_Txt.Text & "' And Topic ='" & topic_Txt.Text & "'"
+                Using conn As New SqlConnection(connStr)
+                    Using cmd As New SqlCommand()
+                        With cmd
+                            .Connection = conn
+                            .CommandText = query
+                            .CommandType = CommandType.Text
+                        End With
+                Try
+                    conn.Open()
+                    Dim count As Int16 = Convert.ToInt16(cmd.ExecuteScalar())
+                    '  MsgBox(count.ToString()
+                    finish_label.Text = count.ToString()
+                Catch ex As Exception
+
+                    MessageBox.Show(ex.Message)
+                            Me.Dispose()
+                        End Try
+                    End Using
+                End Using
+
+
+
+
+    End Sub
+    Private Sub get_image()
+        Try
+            dbaccessconnection()
+            con.Open()
+
+            ' con.ConnectionString = cs
+            da = New SqlDataAdapter("select photo from questionsTb where Qno = '" & question_id.Text & "' ", con)
+            da.Fill(ds)
+            Dim saveImage As IO.MemoryStream
+            Dim imgByte As Byte()
+            If ds.Tables.Count > 0 Then
+                imgByte = ds.Tables(0).Rows(0)("photo")
+                saveImage = New IO.MemoryStream(imgByte)
+                photo.Image = Image.FromStream(saveImage)
+            End If
+            con.Close()
+
+        Catch ex As Exception
+            Me.Dispose()
+        Finally
+            con.Close()
+        End Try
+
+
+
+    End Sub
     Private Sub getvaluedb()
         Dim constr As String = cs
         Using con As SqlConnection = New SqlConnection(constr)
@@ -81,6 +170,7 @@ Public Class QuizFrm
                 cmd.CommandType = CommandType.Text
                 cmd.Connection = con
                 con.Open()
+
                 Using sdr As SqlDataReader = cmd.ExecuteReader()
                     sdr.Read()
 
@@ -92,17 +182,45 @@ Public Class QuizFrm
                     op3_Txt.Text = sdr("option3").ToString()
                     op4_Txt.Text = sdr("option4").ToString()
                     topic_Txt.Text = sdr("answer").ToString()
-                    ans_Txt.Text = sdr("category").ToString()
+                    topic_Txt.Text = sdr("Topic").ToString()
+                    topic_Txt.Text = sdr("difficulty").ToString()
+                    topic_Txt.Text = sdr("score").ToString()
+                    ' photo.Text = sdr("photo").ToString()
+                    get_image()
                 End Using
                 con.Close()
+
             End Using
         End Using
     End Sub
     Private Sub QuizFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbaccessconnection()
-        txtboxid()
-    End Sub
+        FillCombo()
 
+        ' txtboxid()
+    End Sub
+    Private Sub FillCombo()
+        Try
+            Dim conn As New System.Data.SqlClient.SqlConnection(cs)
+            Dim strSQL As String = "SELECT Topic FROM questionsTb"
+            Dim da As New System.Data.SqlClient.SqlDataAdapter(strSQL, conn)
+            Dim ds As New DataSet
+            da.Fill(ds, "questionsTb")
+            With Me.topic_Txt
+                .DataSource = ds.Tables("questionsTb")
+                .DisplayMember = "Topic"
+                .ValueMember = "Topic"
+                .SelectedIndex = -1
+                .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+                .AutoCompleteSource = AutoCompleteSource.ListItems
+            End With
+
+
+        Catch ex As Exception
+            MessageBox.Show("Failed:Retrieving and Populating ProductID " & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         questionid()
         getvaluedb()
@@ -112,31 +230,59 @@ Public Class QuizFrm
         insert()
     End Sub
 
-    Private Sub topic_Txt_TextChanged(sender As Object, e As EventArgs) Handles topic_Txt.TextChanged
-
-    End Sub
-
-    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
-
-    End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-
-    End Sub
-
-    Private Sub op1_Txt_TextChanged(sender As Object, e As EventArgs) Handles op1_Txt.TextChanged
-
-    End Sub
-
-    Private Sub op2_Txt_TextChanged(sender As Object, e As EventArgs) Handles op2_Txt.TextChanged
-
-    End Sub
-
-    Private Sub op4_Txt_TextChanged(sender As Object, e As EventArgs) Handles op4_Txt.TextChanged
-
-    End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         End
     End Sub
+
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        ' txtboxid
+        finish_question()
+        'correct_answer()
+        ' useranswer_selected()
+        ' get_first_row_Id()
+        ' get_image()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        get_first_row_Id()
+        get_image()
+    End Sub
+    Private Sub useranswer_selected()
+        If op1_Txt.Checked Then
+            user_answer.Text = op1_Txt.Text
+        ElseIf op2_Txt.Checked Then
+            user_answer.Text = op2_Txt.Text
+        ElseIf op3_Txt.Checked Then
+            user_answer.Text = op3_Txt.Text
+        ElseIf op4_Txt.Checked Then
+            user_answer.Text = op4_Txt.Text
+        End If
+    End Sub
+    Private Sub correct_answer()
+        If ans_Txt.Text = user_answer.Text Then
+            Dim correctans As Integer
+            correctans = Math.Abs(Integer.Parse(Dbquestion_score_txt.Text) + (Integer.Parse(userscore.Text)))
+            userscore.Text = Convert.ToString(correctans)
+            'totalpredictblnce = Math.Abs(totalpredictblnce)
+
+        End If
+    End Sub
+    Private Sub op1_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op1_Txt.CheckedChanged
+        useranswer_selected()
+    End Sub
+
+    Private Sub op2_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op2_Txt.CheckedChanged
+        useranswer_selected()
+    End Sub
+
+    Private Sub op3_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op3_Txt.CheckedChanged
+        useranswer_selected()
+    End Sub
+
+    Private Sub op4_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op4_Txt.CheckedChanged
+        useranswer_selected()
+    End Sub
+
 End Class
