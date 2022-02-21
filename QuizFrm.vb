@@ -63,7 +63,7 @@ Public Class QuizFrm
 
                 num = cmd.ExecuteScalar + 1
                 question_id.Text = num.ToString
-                ' getvaluedb()
+                getvaluedb()
 
             End If
             con.Close()
@@ -85,15 +85,15 @@ Public Class QuizFrm
             Do While read.Read()
                 question_id.Text = (read("Qno").ToString())
 
-                question_txt.Text = (read("question").ToString())
-                op1_Txt.Text = (read("option1").ToString())
-                op2_Txt.Text = (read("option2").ToString())
-                op3_Txt.Text = (read("option3").ToString())
-                op4_Txt.Text = (read("option4").ToString())
-                ans_Txt.Text = (read("answer").ToString())
-                topic_Txt.Text = (read("Topic").ToString())
-                difficulty_Txt.Text = (read("difficulty").ToString())
-                Dbquestion_score_txt.Text = (read("score").ToString())
+                'question_txt.Text = (read("question").ToString())
+                ' op1_Txt.Text = (read("option1").ToString())
+                ' op2_Txt.Text = (read("option2").ToString())
+                ' op3_Txt.Text = (read("option3").ToString())
+                ' op4_Txt.Text = (read("option4").ToString())
+                ' ans_Txt.Text = (read("answer").ToString())
+                ' topic_Txt.Text = (read("Topic").ToString())
+                ' difficulty_Txt.Text = (read("difficulty").ToString())
+                ' Dbquestion_score_txt.Text = (read("score").ToString())
                 ' photo.Text = sdr("photo").ToString()
                 ' get_image()
 
@@ -109,11 +109,41 @@ Public Class QuizFrm
 
 
     End Sub
+    Private Sub getvaluedb()
+        Dim constr As String = cs
+        Using con As SqlConnection = New SqlConnection(constr)
+            Using cmd As SqlCommand = New SqlCommand("Select * from questionsTb where Qno = '" & question_id.Text & "'")
+                cmd.CommandType = CommandType.Text
+                cmd.Connection = con
+                con.Open()
+
+                Using sdr As SqlDataReader = cmd.ExecuteReader()
+                    sdr.Read()
+
+
+                    question_id.Text = sdr("Qno").ToString()
+                    question_txt.Text = sdr("question").ToString()
+                    op1_Txt.Text = sdr("option1").ToString()
+                    op2_Txt.Text = sdr("option2").ToString()
+                    op3_Txt.Text = sdr("option3").ToString()
+                    op4_Txt.Text = sdr("option4").ToString()
+                    ans_Txt.Text = sdr("answer").ToString()
+                    topic_Txt.Text = sdr("Topic").ToString()
+                    difficulty_Txt.Text = sdr("difficulty").ToString()
+                    Dbquestion_score_txt.Text = sdr("score").ToString()
+                    ' photo.Text = sdr("photo").ToString()
+                    ' get_image()
+                End Using
+                con.Close()
+
+            End Using
+        End Using
+    End Sub
     Private Sub finish_question()
 
         Dim connStr As String = cs
-                Dim query As String = "SELECT COUNT(Qno) FROM questionsTb where difficulty='" & difficulty_Txt.Text & "' And Topic ='" & topic_Txt.Text & "'"
-                Using conn As New SqlConnection(connStr)
+        Dim query As String = "SELECT MAX(Qno) FROM questionsTb where difficulty='" & difficulty_Txt.Text & "' And Topic ='" & topic_Txt.Text & "'"
+        Using conn As New SqlConnection(connStr)
                     Using cmd As New SqlCommand()
                         With cmd
                             .Connection = conn
@@ -163,36 +193,7 @@ Public Class QuizFrm
 
 
     End Sub
-    Private Sub getvaluedb()
-        Dim constr As String = cs
-        Using con As SqlConnection = New SqlConnection(constr)
-            Using cmd As SqlCommand = New SqlCommand("Select * from questionsTb where Qno = '" & question_id.Text & "'")
-                cmd.CommandType = CommandType.Text
-                cmd.Connection = con
-                con.Open()
 
-                Using sdr As SqlDataReader = cmd.ExecuteReader()
-                    sdr.Read()
-
-
-                    question_id.Text = sdr("Qno").ToString()
-                    question_txt.Text = sdr("question").ToString()
-                    op1_Txt.Text = sdr("option1").ToString()
-                    op2_Txt.Text = sdr("option2").ToString()
-                    op3_Txt.Text = sdr("option3").ToString()
-                    op4_Txt.Text = sdr("option4").ToString()
-                    topic_Txt.Text = sdr("answer").ToString()
-                    topic_Txt.Text = sdr("Topic").ToString()
-                    topic_Txt.Text = sdr("difficulty").ToString()
-                    topic_Txt.Text = sdr("score").ToString()
-                    ' photo.Text = sdr("photo").ToString()
-                    get_image()
-                End Using
-                con.Close()
-
-            End Using
-        End Using
-    End Sub
     Private Sub QuizFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbaccessconnection()
         FillCombo()
@@ -222,8 +223,45 @@ Public Class QuizFrm
         End Try
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        questionid()
-        getvaluedb()
+        If user_answer.Text = "" Then
+            MsgBox("Please select the answer")
+
+            If finish_label.Text = question_id.Text And ans_Txt.Text <> user_answer.Text Then
+
+                Dim dt As New DataTable
+                Dim dr As DataRow
+
+                dt.Columns.Add("Question")
+                dt.Columns.Add("option1")
+                dt.Columns.Add("option2")
+                dt.Columns.Add("option3")
+                dt.Columns.Add("option4")
+                dt.Columns.Add("answer")
+                dt.Columns.Add("User_answer")
+
+
+                dr = dt.NewRow
+                dr("Question") = question_txt.Text
+                dr("option1") = op1_Txt.Text
+                dr("option2") = op2_Txt.Text
+                dr("option3") = op3_Txt.Text
+                dr("option4") = op4_Txt.Text
+                dr("answer") = ans_Txt.Text
+                dr("User_answer") = user_answer.Text
+
+                dt.Rows.Add(dr)
+                questiondate_grid.DataSource = dt
+
+            End If
+            MsgBox("Finish")
+
+        Else
+
+            questionid()
+            ' txtboxid()
+            getvaluedb()
+            finish_question()
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
@@ -238,8 +276,8 @@ Public Class QuizFrm
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         ' txtboxid
-        finish_question()
-        'correct_answer()
+        ' finish_question()
+        correct_answer()
         ' useranswer_selected()
         ' get_first_row_Id()
         ' get_image()
@@ -248,6 +286,7 @@ Public Class QuizFrm
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         get_first_row_Id()
         get_image()
+        getvaluedb()
     End Sub
     Private Sub useranswer_selected()
         If op1_Txt.Checked Then
@@ -267,6 +306,9 @@ Public Class QuizFrm
             userscore.Text = Convert.ToString(correctans)
             'totalpredictblnce = Math.Abs(totalpredictblnce)
 
+
+
+
         End If
     End Sub
     Private Sub op1_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op1_Txt.CheckedChanged
@@ -285,4 +327,7 @@ Public Class QuizFrm
         useranswer_selected()
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+    End Sub
 End Class
