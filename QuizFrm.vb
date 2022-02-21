@@ -259,8 +259,9 @@ Public Class QuizFrm
 
             questionid()
             ' txtboxid()
-            getvaluedb()
             finish_question()
+            getvaluedb()
+
         End If
     End Sub
 
