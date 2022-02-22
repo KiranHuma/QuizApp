@@ -22,10 +22,10 @@ Partial Class QuizFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(QuizFrm))
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -36,7 +36,7 @@ Partial Class QuizFrm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.nextBtn = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.question_txt = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -52,13 +52,17 @@ Partial Class QuizFrm
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Dbquestion_score_txt = New System.Windows.Forms.Label()
         Me.difficulty_Txt = New System.Windows.Forms.ComboBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.FinishBtn = New System.Windows.Forms.Button()
+        Me.strtbtn = New System.Windows.Forms.Button()
         Me.topic_Txt = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.finish_label = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.Diffcultylbl = New System.Windows.Forms.Label()
+        Me.topictxt_label = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.questiondate_grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.photo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -107,7 +111,7 @@ Partial Class QuizFrm
         Me.question_id.Name = "question_id"
         Me.question_id.Size = New System.Drawing.Size(36, 15)
         Me.question_id.TabIndex = 39
-        Me.question_id.Text = "3"
+        Me.question_id.Text = "1"
         '
         'Label6
         '
@@ -145,15 +149,16 @@ Partial Class QuizFrm
         Me.Label3.TabIndex = 35
         Me.Label3.Text = "1."
         '
-        'Button1
+        'nextBtn
         '
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(433, 391)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(94, 33)
-        Me.Button1.TabIndex = 29
-        Me.Button1.Text = "Next"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.nextBtn.Enabled = False
+        Me.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.nextBtn.Location = New System.Drawing.Point(433, 391)
+        Me.nextBtn.Name = "nextBtn"
+        Me.nextBtn.Size = New System.Drawing.Size(94, 33)
+        Me.nextBtn.TabIndex = 29
+        Me.nextBtn.Text = "Next"
+        Me.nextBtn.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -207,10 +212,9 @@ Partial Class QuizFrm
         Me.op1_Txt.AutoSize = True
         Me.op1_Txt.Location = New System.Drawing.Point(173, 267)
         Me.op1_Txt.Name = "op1_Txt"
-        Me.op1_Txt.Size = New System.Drawing.Size(115, 21)
+        Me.op1_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op1_Txt.TabIndex = 52
         Me.op1_Txt.TabStop = True
-        Me.op1_Txt.Text = "RadioButton1"
         Me.op1_Txt.UseVisualStyleBackColor = True
         '
         'op2_Txt
@@ -218,10 +222,9 @@ Partial Class QuizFrm
         Me.op2_Txt.AutoSize = True
         Me.op2_Txt.Location = New System.Drawing.Point(174, 305)
         Me.op2_Txt.Name = "op2_Txt"
-        Me.op2_Txt.Size = New System.Drawing.Size(115, 21)
+        Me.op2_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op2_Txt.TabIndex = 53
         Me.op2_Txt.TabStop = True
-        Me.op2_Txt.Text = "RadioButton2"
         Me.op2_Txt.UseVisualStyleBackColor = True
         '
         'op3_Txt
@@ -229,10 +232,9 @@ Partial Class QuizFrm
         Me.op3_Txt.AutoSize = True
         Me.op3_Txt.Location = New System.Drawing.Point(174, 343)
         Me.op3_Txt.Name = "op3_Txt"
-        Me.op3_Txt.Size = New System.Drawing.Size(115, 21)
+        Me.op3_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op3_Txt.TabIndex = 54
         Me.op3_Txt.TabStop = True
-        Me.op3_Txt.Text = "RadioButton3"
         Me.op3_Txt.UseVisualStyleBackColor = True
         '
         'op4_Txt
@@ -240,47 +242,46 @@ Partial Class QuizFrm
         Me.op4_Txt.AutoSize = True
         Me.op4_Txt.Location = New System.Drawing.Point(174, 381)
         Me.op4_Txt.Name = "op4_Txt"
-        Me.op4_Txt.Size = New System.Drawing.Size(115, 21)
+        Me.op4_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op4_Txt.TabIndex = 55
         Me.op4_Txt.TabStop = True
-        Me.op4_Txt.Text = "RadioButton4"
         Me.op4_Txt.UseVisualStyleBackColor = True
         '
         'questiondate_grid
         '
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Indigo
-        Me.questiondate_grid.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle17.BackColor = System.Drawing.Color.Indigo
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Indigo
+        Me.questiondate_grid.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle17
         Me.questiondate_grid.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.questiondate_grid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.Indigo
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Indigo
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.questiondate_grid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle18
         Me.questiondate_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.questiondate_grid.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle19.BackColor = System.Drawing.Color.Indigo
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Indigo
+        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.questiondate_grid.DefaultCellStyle = DataGridViewCellStyle19
         Me.questiondate_grid.GridColor = System.Drawing.Color.White
         Me.questiondate_grid.Location = New System.Drawing.Point(22, 467)
         Me.questiondate_grid.Name = "questiondate_grid"
         Me.questiondate_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.questiondate_grid.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle20.BackColor = System.Drawing.Color.Indigo
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Indigo
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.questiondate_grid.RowHeadersDefaultCellStyle = DataGridViewCellStyle20
         Me.questiondate_grid.RowHeadersWidth = 51
         Me.questiondate_grid.RowTemplate.Height = 24
         Me.questiondate_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -310,12 +311,14 @@ Partial Class QuizFrm
         '
         'Button2
         '
+        Me.Button2.BackColor = System.Drawing.SystemColors.Info
+        Me.Button2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.Button2.Location = New System.Drawing.Point(732, 401)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 60
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Text = "fill"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Dbquestion_score_txt
         '
@@ -330,32 +333,33 @@ Partial Class QuizFrm
         '
         'difficulty_Txt
         '
-        Me.difficulty_Txt.FormattingEnabled = True
         Me.difficulty_Txt.Items.AddRange(New Object() {"Easy", "Difficult", "Medium"})
         Me.difficulty_Txt.Location = New System.Drawing.Point(151, 18)
         Me.difficulty_Txt.Name = "difficulty_Txt"
         Me.difficulty_Txt.Size = New System.Drawing.Size(190, 24)
         Me.difficulty_Txt.TabIndex = 62
         '
-        'Button4
+        'FinishBtn
         '
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(533, 391)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(94, 33)
-        Me.Button4.TabIndex = 64
-        Me.Button4.Text = "Finish"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.FinishBtn.Enabled = False
+        Me.FinishBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FinishBtn.Location = New System.Drawing.Point(533, 391)
+        Me.FinishBtn.Name = "FinishBtn"
+        Me.FinishBtn.Size = New System.Drawing.Size(94, 33)
+        Me.FinishBtn.TabIndex = 64
+        Me.FinishBtn.Text = "Finish"
+        Me.FinishBtn.UseVisualStyleBackColor = True
         '
-        'Button5
+        'strtbtn
         '
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Location = New System.Drawing.Point(333, 391)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(94, 33)
-        Me.Button5.TabIndex = 65
-        Me.Button5.Text = "Start"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.strtbtn.Enabled = False
+        Me.strtbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.strtbtn.Location = New System.Drawing.Point(333, 391)
+        Me.strtbtn.Name = "strtbtn"
+        Me.strtbtn.Size = New System.Drawing.Size(94, 33)
+        Me.strtbtn.TabIndex = 65
+        Me.strtbtn.Text = "Start"
+        Me.strtbtn.UseVisualStyleBackColor = True
         '
         'topic_Txt
         '
@@ -408,6 +412,44 @@ Partial Class QuizFrm
         Me.Label14.Size = New System.Drawing.Size(70, 25)
         Me.Label14.TabIndex = 70
         Me.Label14.Text = "Finish"
+        Me.Label14.Visible = False
+        '
+        'Diffcultylbl
+        '
+        Me.Diffcultylbl.AutoSize = True
+        Me.Diffcultylbl.Location = New System.Drawing.Point(983, 403)
+        Me.Diffcultylbl.Name = "Diffcultylbl"
+        Me.Diffcultylbl.Size = New System.Drawing.Size(58, 17)
+        Me.Diffcultylbl.TabIndex = 71
+        Me.Diffcultylbl.Text = "Diffculty"
+        '
+        'topictxt_label
+        '
+        Me.topictxt_label.AutoSize = True
+        Me.topictxt_label.Location = New System.Drawing.Point(934, 403)
+        Me.topictxt_label.Name = "topictxt_label"
+        Me.topictxt_label.Size = New System.Drawing.Size(43, 17)
+        Me.topictxt_label.TabIndex = 74
+        Me.topictxt_label.Text = "Topic"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Info
+        Me.Button1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Button1.Location = New System.Drawing.Point(830, 401)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 76
+        Me.Button1.Text = "next"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(1047, 400)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(137, 24)
+        Me.ComboBox1.TabIndex = 78
         '
         'QuizFrm
         '
@@ -415,13 +457,17 @@ Partial Class QuizFrm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Indigo
         Me.ClientSize = New System.Drawing.Size(1325, 686)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.topictxt_label)
+        Me.Controls.Add(Me.Diffcultylbl)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.finish_label)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.topic_Txt)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.strtbtn)
+        Me.Controls.Add(Me.FinishBtn)
         Me.Controls.Add(Me.difficulty_Txt)
         Me.Controls.Add(Me.Dbquestion_score_txt)
         Me.Controls.Add(Me.Button2)
@@ -444,7 +490,7 @@ Partial Class QuizFrm
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.nextBtn)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.question_txt)
         Me.ForeColor = System.Drawing.Color.White
@@ -467,7 +513,7 @@ Partial Class QuizFrm
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents nextBtn As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents question_txt As TextBox
     Private WithEvents Label2 As Label
@@ -483,11 +529,15 @@ Partial Class QuizFrm
     Friend WithEvents Button2 As Button
     Friend WithEvents Dbquestion_score_txt As Label
     Friend WithEvents difficulty_Txt As ComboBox
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents FinishBtn As Button
+    Friend WithEvents strtbtn As Button
     Friend WithEvents topic_Txt As ComboBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents finish_label As Label
     Friend WithEvents Label14 As Label
+    Friend WithEvents Diffcultylbl As Label
+    Friend WithEvents topictxt_label As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

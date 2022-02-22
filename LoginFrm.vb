@@ -97,7 +97,7 @@ Public Class Login
             sda.Fill(dt)
             If dt.Rows(0)(0).ToString() = "1" Then
                 Me.Hide()
-                AddQuestionFrm.Show()
+                QuizFrm.Show()
             Else
                 MessageBox.Show("Invalid username or password")
             End If

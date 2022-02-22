@@ -65,9 +65,15 @@ Public Class SignupFrm
     End Function
 
     Private Sub button2_Click(sender As Object, e As EventArgs) Handles button2.Click
+
+        'insert_para()
+        insert()
+
+    End Sub
+    Private Sub insert_para()
         Dim constr As String = "Data Source=ADMINRG-CP6AJ00;Initial Catalog=QuizappDB;Integrated Security=true"
         Using con As New SqlConnection(constr)
-            Using cmd As New SqlCommand("INSERT INTO Users VALUES(@U_ID,@Username,@Name,@Password,@Gender,@Contact_no,@Email)")
+            Using cmd As New SqlCommand("INSERT INTO Users VALUES(@U_ID,@Username,@Name,@Password,@Gender,@Contact_no,@Email,@My_Score)")
                 cmd.CommandType = CommandType.Text
                 cmd.Parameters.AddWithValue("@U_ID", Uid_txt.Text.Trim())
                 cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
@@ -76,15 +82,34 @@ Public Class SignupFrm
                 cmd.Parameters.AddWithValue("@Gender", CmboGender.Text.Trim())
                 cmd.Parameters.AddWithValue("@Contact_no", txtContact.Text.Trim())
                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
+                cmd.Parameters.AddWithValue("@Score", score_txt.Text.Trim())
                 cmd.Connection = con
                 con.Open()
                 cmd.ExecuteNonQuery()
                 con.Close()
             End Using
         End Using
+    End Sub
+    Private Sub insert()
+        Try
+            dbaccessconnection()
+            con.Open()
+            cmd.CommandText = "INSERT INTO Users (U_ID,Username,Name,Password,Gender,Contact_no,Email,My_Score)values
+                                                 ('" & Uid_txt.Text & "','" & txtUsername.Text & "','" & txtName.Text & "','" & Encrypt(txtPass.Text.Trim()) & "','" & CmboGender.Text & "','" & txtContact.Text & "','" & txtEmail.Text & "','" & score_txt.Text & "')"
 
 
 
+            cmd.ExecuteNonQuery()
+
+
+
+            con.Close()
+            ' getdata()
+            MessageBox.Show("Data Inserted")
+        Catch ex As Exception
+            MsgBox("Data Inserted Failed because " & ex.Message)
+            Me.Dispose()
+        End Try
     End Sub
     Public Sub namecheck()
         Dim con As New SqlConnection(cs)

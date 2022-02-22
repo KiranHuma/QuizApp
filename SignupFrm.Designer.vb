@@ -48,12 +48,14 @@ Partial Class SignupFrm
         Me.label5 = New System.Windows.Forms.Label()
         Me.label6 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.score_txt = New System.Windows.Forms.Label()
         Me.panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'panel1
         '
         Me.panel1.BackColor = System.Drawing.Color.White
+        Me.panel1.Controls.Add(Me.score_txt)
         Me.panel1.Controls.Add(Me.CmboGender)
         Me.panel1.Controls.Add(Me.Label10)
         Me.panel1.Controls.Add(Me.Uid_txt)
@@ -332,6 +334,18 @@ Partial Class SignupFrm
         Me.Label13.TabIndex = 25
         Me.Label13.Text = "X"
         '
+        'score_txt
+        '
+        Me.score_txt.AutoSize = True
+        Me.score_txt.Font = New System.Drawing.Font("Trebuchet MS", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.score_txt.ForeColor = System.Drawing.Color.Black
+        Me.score_txt.Location = New System.Drawing.Point(485, 167)
+        Me.score_txt.Name = "score_txt"
+        Me.score_txt.Size = New System.Drawing.Size(18, 20)
+        Me.score_txt.TabIndex = 28
+        Me.score_txt.Text = "0"
+        Me.score_txt.Visible = False
+        '
         'SignupFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -377,4 +391,5 @@ Partial Class SignupFrm
 	Private WithEvents Label10 As Label
 	Private WithEvents CmboGender As TextBox
     Private WithEvents Label13 As Label
+    Private WithEvents score_txt As Label
 End Class
