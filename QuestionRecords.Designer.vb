@@ -83,7 +83,7 @@ Partial Class QuestionRecords
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(162, 37)
         Me.Button1.TabIndex = 30
-        Me.Button1.Text = "Search Category"
+        Me.Button1.Text = "Search Subject"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'category_searchtxt

@@ -68,28 +68,11 @@ Public Class SignupFrm
 
         'insert_para()
         insert()
+        insert_usernameResult_()
+        Me.Dispose()
+        Login.Show()
+    End Sub
 
-    End Sub
-    Private Sub insert_para()
-        Dim constr As String = "Data Source=ADMINRG-CP6AJ00;Initial Catalog=QuizappDB;Integrated Security=true"
-        Using con As New SqlConnection(constr)
-            Using cmd As New SqlCommand("INSERT INTO Users VALUES(@U_ID,@Username,@Name,@Password,@Gender,@Contact_no,@Email,@My_Score)")
-                cmd.CommandType = CommandType.Text
-                cmd.Parameters.AddWithValue("@U_ID", Uid_txt.Text.Trim())
-                cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
-                cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim())
-                cmd.Parameters.AddWithValue("@Password", Encrypt(txtPass.Text.Trim()))
-                cmd.Parameters.AddWithValue("@Gender", CmboGender.Text.Trim())
-                cmd.Parameters.AddWithValue("@Contact_no", txtContact.Text.Trim())
-                cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
-                cmd.Parameters.AddWithValue("@Score", score_txt.Text.Trim())
-                cmd.Connection = con
-                con.Open()
-                cmd.ExecuteNonQuery()
-                con.Close()
-            End Using
-        End Using
-    End Sub
     Private Sub insert()
         Try
             dbaccessconnection()
@@ -105,7 +88,22 @@ Public Class SignupFrm
 
             con.Close()
             ' getdata()
-            MessageBox.Show("Data Inserted")
+            MessageBox.Show("Registration completed Successfully")
+        Catch ex As Exception
+            MsgBox("Data Inserted Failed because " & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
+    Private Sub insert_usernameResult_()
+        Try
+            dbaccessconnection()
+            con.Open()
+            cmd.CommandText = "INSERT INTO Result_tb (Username,Score)values
+                                                 ('" & txtUsername.Text & "','" & score_txt.Text & "')"
+            cmd.ExecuteNonQuery()
+            con.Close()
+            ' getdata()
+            ' MessageBox.Show("Data Inserted")
         Catch ex As Exception
             MsgBox("Data Inserted Failed because " & ex.Message)
             Me.Dispose()

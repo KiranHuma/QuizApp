@@ -51,12 +51,14 @@ Partial Class AddQuestionFrm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.score_txt = New System.Windows.Forms.TextBox()
         Me.socre_label = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Subject_text = New System.Windows.Forms.TextBox()
         CType(Me.photo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'question_txt
         '
-        Me.question_txt.Location = New System.Drawing.Point(12, 195)
+        Me.question_txt.Location = New System.Drawing.Point(18, 253)
         Me.question_txt.Multiline = True
         Me.question_txt.Name = "question_txt"
         Me.question_txt.Size = New System.Drawing.Size(468, 57)
@@ -67,7 +69,7 @@ Partial Class AddQuestionFrm
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(12, 172)
+        Me.Label1.Location = New System.Drawing.Point(18, 230)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(90, 20)
         Me.Label1.TabIndex = 1
@@ -102,7 +104,7 @@ Partial Class AddQuestionFrm
         'op1_Txt
         '
         Me.op1_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.op1_Txt.Location = New System.Drawing.Point(39, 289)
+        Me.op1_Txt.Location = New System.Drawing.Point(45, 347)
         Me.op1_Txt.Multiline = True
         Me.op1_Txt.Name = "op1_Txt"
         Me.op1_Txt.Size = New System.Drawing.Size(203, 45)
@@ -111,7 +113,7 @@ Partial Class AddQuestionFrm
         'op2_Txt
         '
         Me.op2_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.op2_Txt.Location = New System.Drawing.Point(277, 284)
+        Me.op2_Txt.Location = New System.Drawing.Point(283, 342)
         Me.op2_Txt.Multiline = True
         Me.op2_Txt.Name = "op2_Txt"
         Me.op2_Txt.Size = New System.Drawing.Size(203, 45)
@@ -120,7 +122,7 @@ Partial Class AddQuestionFrm
         'op3_Txt
         '
         Me.op3_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.op3_Txt.Location = New System.Drawing.Point(39, 352)
+        Me.op3_Txt.Location = New System.Drawing.Point(45, 410)
         Me.op3_Txt.Multiline = True
         Me.op3_Txt.Name = "op3_Txt"
         Me.op3_Txt.Size = New System.Drawing.Size(203, 45)
@@ -129,7 +131,7 @@ Partial Class AddQuestionFrm
         'op4_Txt
         '
         Me.op4_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.op4_Txt.Location = New System.Drawing.Point(277, 352)
+        Me.op4_Txt.Location = New System.Drawing.Point(283, 410)
         Me.op4_Txt.Multiline = True
         Me.op4_Txt.Name = "op4_Txt"
         Me.op4_Txt.Size = New System.Drawing.Size(203, 45)
@@ -140,7 +142,7 @@ Partial Class AddQuestionFrm
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(13, 287)
+        Me.Label3.Location = New System.Drawing.Point(19, 345)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(24, 20)
         Me.Label3.TabIndex = 13
@@ -151,7 +153,7 @@ Partial Class AddQuestionFrm
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(248, 289)
+        Me.Label4.Location = New System.Drawing.Point(254, 347)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(24, 20)
         Me.Label4.TabIndex = 14
@@ -162,7 +164,7 @@ Partial Class AddQuestionFrm
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(13, 352)
+        Me.Label5.Location = New System.Drawing.Point(19, 410)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(24, 20)
         Me.Label5.TabIndex = 15
@@ -173,7 +175,7 @@ Partial Class AddQuestionFrm
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(251, 357)
+        Me.Label6.Location = New System.Drawing.Point(257, 415)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(24, 20)
         Me.Label6.TabIndex = 16
@@ -186,7 +188,7 @@ Partial Class AddQuestionFrm
         Me.question_id.Enabled = False
         Me.question_id.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.question_id.ForeColor = System.Drawing.Color.White
-        Me.question_id.Location = New System.Drawing.Point(108, 174)
+        Me.question_id.Location = New System.Drawing.Point(114, 232)
         Me.question_id.Name = "question_id"
         Me.question_id.Size = New System.Drawing.Size(36, 20)
         Me.question_id.TabIndex = 17
@@ -195,7 +197,7 @@ Partial Class AddQuestionFrm
         'ans_Txt
         '
         Me.ans_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ans_Txt.Location = New System.Drawing.Point(90, 443)
+        Me.ans_Txt.Location = New System.Drawing.Point(96, 501)
         Me.ans_Txt.Multiline = True
         Me.ans_Txt.Name = "ans_Txt"
         Me.ans_Txt.Size = New System.Drawing.Size(244, 39)
@@ -204,7 +206,7 @@ Partial Class AddQuestionFrm
         'topic_Txt
         '
         Me.topic_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.topic_Txt.Location = New System.Drawing.Point(15, 56)
+        Me.topic_Txt.Location = New System.Drawing.Point(21, 114)
         Me.topic_Txt.Multiline = True
         Me.topic_Txt.Name = "topic_Txt"
         Me.topic_Txt.Size = New System.Drawing.Size(465, 50)
@@ -215,7 +217,7 @@ Partial Class AddQuestionFrm
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(13, 449)
+        Me.Label9.Location = New System.Drawing.Point(19, 507)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(71, 20)
         Me.Label9.TabIndex = 23
@@ -226,7 +228,7 @@ Partial Class AddQuestionFrm
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(13, 33)
+        Me.Label10.Location = New System.Drawing.Point(19, 91)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(55, 20)
         Me.Label10.TabIndex = 24
@@ -237,7 +239,7 @@ Partial Class AddQuestionFrm
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(12, 122)
+        Me.Label11.Location = New System.Drawing.Point(18, 180)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(136, 20)
         Me.Label11.TabIndex = 26
@@ -247,7 +249,7 @@ Partial Class AddQuestionFrm
         '
         Me.difficulty_Txt.FormattingEnabled = True
         Me.difficulty_Txt.Items.AddRange(New Object() {"Easy", "Medium", "Difficult"})
-        Me.difficulty_Txt.Location = New System.Drawing.Point(15, 142)
+        Me.difficulty_Txt.Location = New System.Drawing.Point(21, 200)
         Me.difficulty_Txt.Name = "difficulty_Txt"
         Me.difficulty_Txt.Size = New System.Drawing.Size(465, 24)
         Me.difficulty_Txt.TabIndex = 27
@@ -320,7 +322,7 @@ Partial Class AddQuestionFrm
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.Indigo
-        Me.Label2.Location = New System.Drawing.Point(34, 505)
+        Me.Label2.Location = New System.Drawing.Point(562, 449)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(68, 17)
         Me.Label2.TabIndex = 34
@@ -333,7 +335,7 @@ Partial Class AddQuestionFrm
         Me.score_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.score_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.score_txt.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.score_txt.Location = New System.Drawing.Point(414, 451)
+        Me.score_txt.Location = New System.Drawing.Point(420, 509)
         Me.score_txt.Name = "score_txt"
         Me.score_txt.Size = New System.Drawing.Size(66, 20)
         Me.score_txt.TabIndex = 39
@@ -344,11 +346,31 @@ Partial Class AddQuestionFrm
         Me.socre_label.AutoSize = True
         Me.socre_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.socre_label.ForeColor = System.Drawing.Color.White
-        Me.socre_label.Location = New System.Drawing.Point(350, 449)
+        Me.socre_label.Location = New System.Drawing.Point(356, 507)
         Me.socre_label.Name = "socre_label"
         Me.socre_label.Size = New System.Drawing.Size(58, 20)
         Me.socre_label.TabIndex = 38
         Me.socre_label.Text = "Score"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(19, 29)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(72, 20)
+        Me.Label7.TabIndex = 41
+        Me.Label7.Text = "Subject"
+        '
+        'Subject_text
+        '
+        Me.Subject_text.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.Subject_text.Location = New System.Drawing.Point(96, 20)
+        Me.Subject_text.Multiline = True
+        Me.Subject_text.Name = "Subject_text"
+        Me.Subject_text.Size = New System.Drawing.Size(305, 29)
+        Me.Subject_text.TabIndex = 40
         '
         'AddQuestionFrm
         '
@@ -356,6 +378,8 @@ Partial Class AddQuestionFrm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Indigo
         Me.ClientSize = New System.Drawing.Size(1143, 549)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Subject_text)
         Me.Controls.Add(Me.score_txt)
         Me.Controls.Add(Me.socre_label)
         Me.Controls.Add(Me.Label2)
@@ -421,4 +445,6 @@ Partial Class AddQuestionFrm
     Friend WithEvents Label2 As Label
     Friend WithEvents score_txt As TextBox
     Friend WithEvents socre_label As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Subject_text As TextBox
 End Class

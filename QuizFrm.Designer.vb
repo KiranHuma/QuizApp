@@ -22,10 +22,6 @@ Partial Class QuizFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(QuizFrm))
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -46,13 +42,10 @@ Partial Class QuizFrm
         Me.op2_Txt = New System.Windows.Forms.RadioButton()
         Me.op3_Txt = New System.Windows.Forms.RadioButton()
         Me.op4_Txt = New System.Windows.Forms.RadioButton()
-        Me.questiondate_grid = New System.Windows.Forms.DataGridView()
         Me.photo = New System.Windows.Forms.PictureBox()
-        Me.userscore = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Dbquestion_score_txt = New System.Windows.Forms.Label()
         Me.difficulty_Txt = New System.Windows.Forms.ComboBox()
-        Me.FinishBtn = New System.Windows.Forms.Button()
         Me.strtbtn = New System.Windows.Forms.Button()
         Me.topic_Txt = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -63,14 +56,19 @@ Partial Class QuizFrm
         Me.topictxt_label = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        CType(Me.questiondate_grid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.addQ_sub_txt = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.username_lbl = New System.Windows.Forms.Label()
+        Me.userscore = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.photo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(33, 21)
+        Me.Label11.Location = New System.Drawing.Point(45, 104)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(61, 17)
         Me.Label11.TabIndex = 48
@@ -79,16 +77,17 @@ Partial Class QuizFrm
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(33, 49)
+        Me.Label10.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label10.Location = New System.Drawing.Point(45, 132)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(43, 17)
+        Me.Label10.Size = New System.Drawing.Size(72, 17)
         Me.Label10.TabIndex = 46
-        Me.Label10.Text = "Topic"
+        Me.Label10.Text = "Add Topic"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(364, 263)
+        Me.Label9.Location = New System.Drawing.Point(376, 346)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 17)
         Me.Label9.TabIndex = 45
@@ -97,7 +96,7 @@ Partial Class QuizFrm
         'ans_Txt
         '
         Me.ans_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ans_Txt.Location = New System.Drawing.Point(367, 292)
+        Me.ans_Txt.Location = New System.Drawing.Point(379, 375)
         Me.ans_Txt.Name = "ans_Txt"
         Me.ans_Txt.Size = New System.Drawing.Size(100, 15)
         Me.ans_Txt.TabIndex = 43
@@ -107,7 +106,7 @@ Partial Class QuizFrm
         Me.question_id.BackColor = System.Drawing.Color.Indigo
         Me.question_id.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.question_id.ForeColor = System.Drawing.Color.White
-        Me.question_id.Location = New System.Drawing.Point(99, 112)
+        Me.question_id.Location = New System.Drawing.Point(111, 195)
         Me.question_id.Name = "question_id"
         Me.question_id.Size = New System.Drawing.Size(36, 15)
         Me.question_id.TabIndex = 39
@@ -116,7 +115,7 @@ Partial Class QuizFrm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(147, 383)
+        Me.Label6.Location = New System.Drawing.Point(159, 466)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(20, 17)
         Me.Label6.TabIndex = 38
@@ -125,7 +124,7 @@ Partial Class QuizFrm
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(148, 343)
+        Me.Label5.Location = New System.Drawing.Point(160, 426)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(20, 17)
         Me.Label5.TabIndex = 37
@@ -134,7 +133,7 @@ Partial Class QuizFrm
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(148, 303)
+        Me.Label4.Location = New System.Drawing.Point(160, 386)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(20, 17)
         Me.Label4.TabIndex = 36
@@ -143,7 +142,7 @@ Partial Class QuizFrm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(147, 263)
+        Me.Label3.Location = New System.Drawing.Point(159, 346)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(20, 17)
         Me.Label3.TabIndex = 35
@@ -153,7 +152,7 @@ Partial Class QuizFrm
         '
         Me.nextBtn.Enabled = False
         Me.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.nextBtn.Location = New System.Drawing.Point(433, 391)
+        Me.nextBtn.Location = New System.Drawing.Point(585, 484)
         Me.nextBtn.Name = "nextBtn"
         Me.nextBtn.Size = New System.Drawing.Size(94, 33)
         Me.nextBtn.TabIndex = 29
@@ -163,7 +162,7 @@ Partial Class QuizFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(33, 110)
+        Me.Label1.Location = New System.Drawing.Point(45, 193)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 17)
         Me.Label1.TabIndex = 28
@@ -171,7 +170,7 @@ Partial Class QuizFrm
         '
         'question_txt
         '
-        Me.question_txt.Location = New System.Drawing.Point(151, 107)
+        Me.question_txt.Location = New System.Drawing.Point(163, 190)
         Me.question_txt.Multiline = True
         Me.question_txt.Name = "question_txt"
         Me.question_txt.ScrollBars = System.Windows.Forms.ScrollBars.Both
@@ -193,7 +192,7 @@ Partial Class QuizFrm
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(507, 263)
+        Me.Label7.Location = New System.Drawing.Point(519, 346)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(88, 17)
         Me.Label7.TabIndex = 51
@@ -202,7 +201,7 @@ Partial Class QuizFrm
         'user_answer
         '
         Me.user_answer.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.user_answer.Location = New System.Drawing.Point(510, 292)
+        Me.user_answer.Location = New System.Drawing.Point(522, 375)
         Me.user_answer.Name = "user_answer"
         Me.user_answer.Size = New System.Drawing.Size(100, 15)
         Me.user_answer.TabIndex = 50
@@ -210,7 +209,7 @@ Partial Class QuizFrm
         'op1_Txt
         '
         Me.op1_Txt.AutoSize = True
-        Me.op1_Txt.Location = New System.Drawing.Point(173, 267)
+        Me.op1_Txt.Location = New System.Drawing.Point(185, 350)
         Me.op1_Txt.Name = "op1_Txt"
         Me.op1_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op1_Txt.TabIndex = 52
@@ -220,7 +219,7 @@ Partial Class QuizFrm
         'op2_Txt
         '
         Me.op2_Txt.AutoSize = True
-        Me.op2_Txt.Location = New System.Drawing.Point(174, 305)
+        Me.op2_Txt.Location = New System.Drawing.Point(186, 388)
         Me.op2_Txt.Name = "op2_Txt"
         Me.op2_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op2_Txt.TabIndex = 53
@@ -230,7 +229,7 @@ Partial Class QuizFrm
         'op3_Txt
         '
         Me.op3_Txt.AutoSize = True
-        Me.op3_Txt.Location = New System.Drawing.Point(174, 343)
+        Me.op3_Txt.Location = New System.Drawing.Point(186, 426)
         Me.op3_Txt.Name = "op3_Txt"
         Me.op3_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op3_Txt.TabIndex = 54
@@ -240,53 +239,12 @@ Partial Class QuizFrm
         'op4_Txt
         '
         Me.op4_Txt.AutoSize = True
-        Me.op4_Txt.Location = New System.Drawing.Point(174, 381)
+        Me.op4_Txt.Location = New System.Drawing.Point(186, 464)
         Me.op4_Txt.Name = "op4_Txt"
         Me.op4_Txt.Size = New System.Drawing.Size(17, 16)
         Me.op4_Txt.TabIndex = 55
         Me.op4_Txt.TabStop = True
         Me.op4_Txt.UseVisualStyleBackColor = True
-        '
-        'questiondate_grid
-        '
-        DataGridViewCellStyle17.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Indigo
-        Me.questiondate_grid.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle17
-        Me.questiondate_grid.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.questiondate_grid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle18
-        Me.questiondate_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.questiondate_grid.DefaultCellStyle = DataGridViewCellStyle19
-        Me.questiondate_grid.GridColor = System.Drawing.Color.White
-        Me.questiondate_grid.Location = New System.Drawing.Point(22, 467)
-        Me.questiondate_grid.Name = "questiondate_grid"
-        Me.questiondate_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Indigo
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.questiondate_grid.RowHeadersDefaultCellStyle = DataGridViewCellStyle20
-        Me.questiondate_grid.RowHeadersWidth = 51
-        Me.questiondate_grid.RowTemplate.Height = 24
-        Me.questiondate_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.questiondate_grid.Size = New System.Drawing.Size(1233, 185)
-        Me.questiondate_grid.TabIndex = 56
         '
         'photo
         '
@@ -298,26 +256,15 @@ Partial Class QuizFrm
         Me.photo.TabIndex = 58
         Me.photo.TabStop = False
         '
-        'userscore
-        '
-        Me.userscore.AutoSize = True
-        Me.userscore.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userscore.ForeColor = System.Drawing.Color.Chartreuse
-        Me.userscore.Location = New System.Drawing.Point(603, 49)
-        Me.userscore.Name = "userscore"
-        Me.userscore.Size = New System.Drawing.Size(24, 25)
-        Me.userscore.TabIndex = 59
-        Me.userscore.Text = "0"
-        '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.Info
         Me.Button2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button2.Location = New System.Drawing.Point(732, 401)
+        Me.Button2.Location = New System.Drawing.Point(719, 403)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(92, 23)
         Me.Button2.TabIndex = 60
-        Me.Button2.Text = "fill"
+        Me.Button2.Text = "Check"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Dbquestion_score_txt
@@ -325,7 +272,7 @@ Partial Class QuizFrm
         Me.Dbquestion_score_txt.AutoSize = True
         Me.Dbquestion_score_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dbquestion_score_txt.ForeColor = System.Drawing.Color.Chartreuse
-        Me.Dbquestion_score_txt.Location = New System.Drawing.Point(52, 186)
+        Me.Dbquestion_score_txt.Location = New System.Drawing.Point(64, 269)
         Me.Dbquestion_score_txt.Name = "Dbquestion_score_txt"
         Me.Dbquestion_score_txt.Size = New System.Drawing.Size(24, 25)
         Me.Dbquestion_score_txt.TabIndex = 61
@@ -334,27 +281,16 @@ Partial Class QuizFrm
         'difficulty_Txt
         '
         Me.difficulty_Txt.Items.AddRange(New Object() {"Easy", "Difficult", "Medium"})
-        Me.difficulty_Txt.Location = New System.Drawing.Point(151, 18)
+        Me.difficulty_Txt.Location = New System.Drawing.Point(163, 101)
         Me.difficulty_Txt.Name = "difficulty_Txt"
         Me.difficulty_Txt.Size = New System.Drawing.Size(190, 24)
         Me.difficulty_Txt.TabIndex = 62
-        '
-        'FinishBtn
-        '
-        Me.FinishBtn.Enabled = False
-        Me.FinishBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.FinishBtn.Location = New System.Drawing.Point(533, 391)
-        Me.FinishBtn.Name = "FinishBtn"
-        Me.FinishBtn.Size = New System.Drawing.Size(94, 33)
-        Me.FinishBtn.TabIndex = 64
-        Me.FinishBtn.Text = "Finish"
-        Me.FinishBtn.UseVisualStyleBackColor = True
         '
         'strtbtn
         '
         Me.strtbtn.Enabled = False
         Me.strtbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.strtbtn.Location = New System.Drawing.Point(333, 391)
+        Me.strtbtn.Location = New System.Drawing.Point(485, 484)
         Me.strtbtn.Name = "strtbtn"
         Me.strtbtn.Size = New System.Drawing.Size(94, 33)
         Me.strtbtn.TabIndex = 65
@@ -363,8 +299,9 @@ Partial Class QuizFrm
         '
         'topic_Txt
         '
+        Me.topic_Txt.Enabled = False
         Me.topic_Txt.FormattingEnabled = True
-        Me.topic_Txt.Location = New System.Drawing.Point(150, 49)
+        Me.topic_Txt.Location = New System.Drawing.Point(162, 132)
         Me.topic_Txt.Name = "topic_Txt"
         Me.topic_Txt.Size = New System.Drawing.Size(361, 24)
         Me.topic_Txt.TabIndex = 66
@@ -374,7 +311,7 @@ Partial Class QuizFrm
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Chartreuse
-        Me.Label12.Location = New System.Drawing.Point(577, 9)
+        Me.Label12.Location = New System.Drawing.Point(569, 9)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(69, 25)
         Me.Label12.TabIndex = 67
@@ -385,7 +322,7 @@ Partial Class QuizFrm
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Chartreuse
-        Me.Label13.Location = New System.Drawing.Point(31, 145)
+        Me.Label13.Location = New System.Drawing.Point(43, 228)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(71, 25)
         Me.Label13.TabIndex = 68
@@ -396,7 +333,7 @@ Partial Class QuizFrm
         Me.finish_label.AutoSize = True
         Me.finish_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.finish_label.ForeColor = System.Drawing.Color.Chartreuse
-        Me.finish_label.Location = New System.Drawing.Point(628, 331)
+        Me.finish_label.Location = New System.Drawing.Point(640, 414)
         Me.finish_label.Name = "finish_label"
         Me.finish_label.Size = New System.Drawing.Size(24, 25)
         Me.finish_label.TabIndex = 69
@@ -407,7 +344,7 @@ Partial Class QuizFrm
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Chartreuse
-        Me.Label14.Location = New System.Drawing.Point(557, 331)
+        Me.Label14.Location = New System.Drawing.Point(569, 414)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(70, 25)
         Me.Label14.TabIndex = 70
@@ -451,12 +388,71 @@ Partial Class QuizFrm
         Me.ComboBox1.Size = New System.Drawing.Size(137, 24)
         Me.ComboBox1.TabIndex = 78
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(388, 104)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(55, 17)
+        Me.Label8.TabIndex = 80
+        Me.Label8.Text = "Subject"
+        '
+        'addQ_sub_txt
+        '
+        Me.addQ_sub_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.addQ_sub_txt.Location = New System.Drawing.Point(449, 101)
+        Me.addQ_sub_txt.Multiline = True
+        Me.addQ_sub_txt.Name = "addQ_sub_txt"
+        Me.addQ_sub_txt.Size = New System.Drawing.Size(130, 22)
+        Me.addQ_sub_txt.TabIndex = 79
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(92, 26)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(25, 17)
+        Me.Label15.TabIndex = 82
+        Me.Label15.Text = "Hi,"
+        '
+        'username_lbl
+        '
+        Me.username_lbl.AutoSize = True
+        Me.username_lbl.Location = New System.Drawing.Point(159, 24)
+        Me.username_lbl.Name = "username_lbl"
+        Me.username_lbl.Size = New System.Drawing.Size(73, 17)
+        Me.username_lbl.TabIndex = 83
+        Me.username_lbl.Text = "Username"
+        '
+        'userscore
+        '
+        Me.userscore.Location = New System.Drawing.Point(559, 49)
+        Me.userscore.Name = "userscore"
+        Me.userscore.Size = New System.Drawing.Size(100, 22)
+        Me.userscore.TabIndex = 84
+        '
+        'Button3
+        '
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(528, 129)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(94, 28)
+        Me.Button3.TabIndex = 85
+        Me.Button3.Text = "Add Topic"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'QuizFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Indigo
-        Me.ClientSize = New System.Drawing.Size(1325, 686)
+        Me.ClientSize = New System.Drawing.Size(1325, 542)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.userscore)
+        Me.Controls.Add(Me.username_lbl)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.addQ_sub_txt)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.topictxt_label)
@@ -467,13 +463,10 @@ Partial Class QuizFrm
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.topic_Txt)
         Me.Controls.Add(Me.strtbtn)
-        Me.Controls.Add(Me.FinishBtn)
         Me.Controls.Add(Me.difficulty_Txt)
         Me.Controls.Add(Me.Dbquestion_score_txt)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.userscore)
         Me.Controls.Add(Me.photo)
-        Me.Controls.Add(Me.questiondate_grid)
         Me.Controls.Add(Me.op4_Txt)
         Me.Controls.Add(Me.op3_Txt)
         Me.Controls.Add(Me.op2_Txt)
@@ -497,7 +490,6 @@ Partial Class QuizFrm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "QuizFrm"
         Me.Text = "QuizFrm"
-        CType(Me.questiondate_grid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.photo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -523,13 +515,10 @@ Partial Class QuizFrm
     Friend WithEvents op2_Txt As RadioButton
     Friend WithEvents op3_Txt As RadioButton
     Friend WithEvents op4_Txt As RadioButton
-    Friend WithEvents questiondate_grid As DataGridView
     Friend WithEvents photo As PictureBox
-    Friend WithEvents userscore As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Dbquestion_score_txt As Label
     Friend WithEvents difficulty_Txt As ComboBox
-    Friend WithEvents FinishBtn As Button
     Friend WithEvents strtbtn As Button
     Friend WithEvents topic_Txt As ComboBox
     Friend WithEvents Label12 As Label
@@ -540,4 +529,10 @@ Partial Class QuizFrm
     Friend WithEvents topictxt_label As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents addQ_sub_txt As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents username_lbl As Label
+    Friend WithEvents userscore As TextBox
+    Friend WithEvents Button3 As Button
 End Class

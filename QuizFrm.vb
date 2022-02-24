@@ -18,6 +18,11 @@ Public Class QuizFrm
     Dim table As New DataTable("table")
     ' selected row index 
     Dim rowIndex As Integer
+
+    Dim str As String
+    Dim com As SqlCommand
+
+
     'Database Connection
     Private Sub dbaccessconnection()
         Try
@@ -29,33 +34,6 @@ Public Class QuizFrm
             Me.Dispose()
         End Try
     End Sub
-
-
-
-    Private Sub txtboxid()
-        Try
-            dbaccessconnection()
-            con.Open()
-            Dim num As New Integer
-            cmd.CommandText = "SELECT MAX(Qno) FROM questionsTb "
-            If (IsDBNull(cmd.ExecuteScalar)) Then
-                num = 1
-                question_id.Text = num.ToString
-            Else
-
-                num = cmd.ExecuteScalar + 1
-                question_id.Text = num.ToString
-                getvaluedb()
-
-            End If
-            con.Close()
-        Catch ex As Exception
-            MsgBox("Failed:Autoincrement of Transaction ID " & ex.Message)
-            Me.Dispose()
-        End Try
-
-    End Sub
-
 
 
     Private Sub get_image()
@@ -81,20 +59,22 @@ Public Class QuizFrm
             con.Close()
         End Try
 
-
-
     End Sub
 
     Private Sub QuizFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbaccessconnection()
+        'get_user_score()
+
+
+        change_difficulty()
         FillCombo()
-        ' strtbtn.Enabled = False
-        ' txtboxid()
+
+
     End Sub
     Private Sub FillCombo()
         Try
             Dim conn As New System.Data.SqlClient.SqlConnection(cs)
-            Dim strSQL As String = "SELECT DISTINCT (Topic) FROM questionsTb"
+            Dim strSQL As String = "SELECT DISTINCT (Topic) FROM questionsTb where Q_Subject= '" & addQ_sub_txt.Text & "' AND difficulty='" & Diffcultylbl.Text & "'"
             Dim da As New System.Data.SqlClient.SqlDataAdapter(strSQL, conn)
             Dim ds As New DataSet
             da.Fill(ds, "questionsTb")
@@ -109,7 +89,7 @@ Public Class QuizFrm
 
 
         Catch ex As Exception
-            MessageBox.Show("Failed:Retrieving and Populating ProductID " & ex.Message)
+            MessageBox.Show("Failed:Retrieving and Populating " & ex.Message)
             'Me.Dispose()
         End Try
     End Sub
@@ -118,20 +98,6 @@ Public Class QuizFrm
         End
     End Sub
 
-
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
-        'get_first_row_Id()
-        ' txtboxid
-        ' finish_question()
-        '  correct_answer()
-        ' getvaluedb()
-        ' useranswer_selected()
-        ' get_first_row_Id()
-
-
-        ' get_image()
-
-    End Sub
 
 
     Private Sub useranswer_selected()
@@ -148,7 +114,7 @@ Public Class QuizFrm
 
     Private Sub op1_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op1_Txt.CheckedChanged
         useranswer_selected()
-
+        check_topic()
         op1_Txt.Enabled = False
         op2_Txt.Enabled = False
         op3_Txt.Enabled = False
@@ -158,7 +124,7 @@ Public Class QuizFrm
 
     Private Sub op2_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op2_Txt.CheckedChanged
         useranswer_selected()
-
+        check_topic()
         op1_Txt.Enabled = False
         op2_Txt.Enabled = False
         op3_Txt.Enabled = False
@@ -168,7 +134,7 @@ Public Class QuizFrm
 
     Private Sub op3_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op3_Txt.CheckedChanged
         useranswer_selected()
-
+        check_topic()
         op1_Txt.Enabled = False
         op2_Txt.Enabled = False
         op3_Txt.Enabled = False
@@ -179,7 +145,7 @@ Public Class QuizFrm
 
     Private Sub op4_Txt_CheckedChanged(sender As Object, e As EventArgs) Handles op4_Txt.CheckedChanged
         useranswer_selected()
-
+        check_topic()
         op1_Txt.Enabled = False
         op2_Txt.Enabled = False
         op3_Txt.Enabled = False
@@ -189,8 +155,9 @@ Public Class QuizFrm
 
 
     Private Sub topic_Txt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles topic_Txt.SelectedIndexChanged
-        topictxt_label.Text = topic_Txt.Text
+        ' topictxt_label.Text = topic_Txt.Text
         strtbtn.Enabled = True
+
     End Sub
     Private Sub get_first_row_Id()
 
@@ -199,7 +166,7 @@ Public Class QuizFrm
             Dim constr As String = cs
             Using con As SqlConnection = New SqlConnection(constr)
 
-                Using command As SqlCommand = New SqlCommand(" SELECT TOP 1 * FROM questionsTb where Qno >= '" & question_id.Text & "' AND difficulty='" & Diffcultylbl.Text & "' And Topic ='" & topictxt_label.Text & "'", con)
+                Using command As SqlCommand = New SqlCommand(" SELECT TOP 1 * FROM questionsTb where Qno >= '" & question_id.Text & "' AND difficulty='" & difficulty_Txt.Text & "' And Topic ='" & topic_Txt.Text & "' AND  Q_Subject= '" & addQ_sub_txt.Text & "'", con)
                     con.Open()
                     cmd.Parameters.Clear()
                     Dim read As SqlDataReader = command.ExecuteReader()
@@ -255,56 +222,59 @@ Public Class QuizFrm
                     difficulty_Txt.Text = sdr("difficulty").ToString()
                     Dbquestion_score_txt.Text = sdr("score").ToString()
                     ' photo.Text = sdr("photo").ToString()
-                    ' get_image()
+                    get_image()
                 End Using
                 con.Close()
 
             End Using
         End Using
     End Sub
-    Private Sub check_wronganswer()
+
+    ''wrong question checker
+    ' Private Sub check_wronganswer()
 
 
-        If ans_Txt.Text <> user_answer.Text Then
+    'If ans_Txt.Text <> user_answer.Text Then
 
-            Dim dt As New DataTable
-            Dim dr As DataRow
+    '  Dim dt As New DataTable
+    'Dim dr As DataRow
 
-            dt.Columns.Add("Question")
-            dt.Columns.Add("option1")
-            dt.Columns.Add("option2")
-            dt.Columns.Add("option3")
-            dt.Columns.Add("option4")
-            dt.Columns.Add("answer")
-            dt.Columns.Add("User_answer")
+    '   dt.Columns.Add("Question")
+    '   dt.Columns.Add("option1")
+    '   dt.Columns.Add("option2")
+    '   dt.Columns.Add("option3")
+    '    dt.Columns.Add("option4")
+    '    dt.Columns.Add("answer")
+    '    dt.Columns.Add("User_answer")
 
 
-            dr = dt.NewRow
-            dr("Question") = question_txt.Text
-            dr("option1") = op1_Txt.Text
-            dr("option2") = op2_Txt.Text
-            dr("option3") = op3_Txt.Text
-            dr("option4") = op4_Txt.Text
-            dr("answer") = ans_Txt.Text
-            dr("User_answer") = user_answer.Text
+    '     dr = dt.NewRow
+    '     dr("Question") = question_txt.Text
+    '     dr("option1") = op1_Txt.Text
+    '   dr("option2") = op2_Txt.Text
+    '   dr("option3") = op3_Txt.Text
+    '   dr("option4") = op4_Txt.Text
+    '   dr("answer") = ans_Txt.Text
+    '   dr("User_answer") = user_answer.Text
 
-            dt.Rows.Add(dr)
-            questiondate_grid.DataSource = dt
-            MsgBox("Finish")
-        End If
+    '  dt.Rows.Add(dr)
+    '   questiondate_grid.DataSource = dt
+    '   MsgBox("Finish")
+    'd If
 
-    End Sub
+    ' End Sub
     Private Sub strtbtn_Click(sender As Object, e As EventArgs) Handles strtbtn.Click
+
         get_first_row_Id()
-        difficulty_Txt.Enabled = False
-        topic_Txt.Enabled = False
-        'get_image()
-        ' getvaluedb()
-        fillcombo_quetionid_fornext()
-        get_next_value_combo()
-        finish_question()
-        'strtbtn.Enabled = False
+
+
+        strtbtn.Enabled = False
+
+
         nextBtn.Enabled = True
+
+
+
     End Sub
     Private Sub correct_answer()
         If ans_Txt.Text = user_answer.Text Then
@@ -319,12 +289,7 @@ Public Class QuizFrm
         Integer.TryParse(question_id.Text, int)
         question_id.Text = (int + 1)
     End Sub
-    Private Sub end_quiz()
-        If finish_label.Text = question_id.Text Then
-            MsgBox("Quiz Finished")
 
-        End If
-    End Sub
     Private Sub finish_question()
 
         Dim connStr As String = cs
@@ -357,19 +322,42 @@ Public Class QuizFrm
         op3_Txt.Enabled = True
         op4_Txt.Enabled = True
     End Sub
+
+    Private Sub change_difficulty()
+        If userscore.Text >= 0 And userscore.Text < 30 Then
+            difficulty_Txt.Text = "Easy"
+            FillCombo()
+            get_first_row_Id()
+        ElseIf userscore.Text > 30 And userscore.Text < 60 Then
+            difficulty_Txt.Text = "Medium"
+            FillCombo()
+            get_first_row_Id()
+        ElseIf userscore.Text > 60 Then
+            difficulty_Txt.Text = "Difficult"
+            FillCombo()
+            get_first_row_Id()
+        End If
+    End Sub
+
+
     Private Sub nextBtn_Click(sender As Object, e As EventArgs) Handles nextBtn.Click
         ' questionid()
         'check_wronganswer()
 
-        get_next_value_combo()
-        getvaluedb()
-        end_quiz()
+
         'check_wronganswer()
+        If finish_label.Text = question_id.Text Then
+            MsgBox("Quiz Finished")
 
-    End Sub
+        Else
+            change_difficulty()
+            get_next_value_combo()
+            ' fillcombo_quetionid_fornext()
+            ' get_next_value_combo()
+            ' getvaluedb()
+            '  end_quiz()
 
-    Private Sub FinishBtn_Click(sender As Object, e As EventArgs) Handles FinishBtn.Click
-
+        End If
     End Sub
 
     Private Sub difficulty_Txt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles difficulty_Txt.SelectedIndexChanged
@@ -384,7 +372,7 @@ Public Class QuizFrm
     Private Sub fillcombo_quetionid_fornext()
         Try
             Dim conn As New System.Data.SqlClient.SqlConnection(cs)
-            Dim strSQL As String = "SELECT  (Qno) FROM questionsTb where difficulty='" & difficulty_Txt.Text & "' And Topic ='" & topic_Txt.Text & "'"
+            Dim strSQL As String = "SELECT (Qno) FROM questionsTb where difficulty='" & difficulty_Txt.Text & "'  And Q_Subject= '" & addQ_sub_txt.Text & "'"
             Dim da As New System.Data.SqlClient.SqlDataAdapter(strSQL, conn)
             Dim ds As New DataSet
             da.Fill(ds, "questionsTb")
@@ -407,11 +395,6 @@ Public Class QuizFrm
 
 
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs)
-
-
-    End Sub
-
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         question_id.Text = ComboBox1.Text
     End Sub
@@ -423,7 +406,66 @@ Public Class QuizFrm
     Private Sub user_answer_TextChanged(sender As Object, e As EventArgs) Handles user_answer.TextChanged
         correct_answer()
 
-        check_wronganswer()
-        ' end_quiz()
+
+    End Sub
+
+
+    Private Sub add_score()
+        Try
+            con.Open()
+            cmd.CommandText = ("UPDATE Result_tb SET Score= '" & userscore.Text & "' where Topic='" & topic_Txt.Text & "'")
+
+            cmd.ExecuteNonQuery()
+
+            MessageBox.Show("Data updated")
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show("Data Not Updated" & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
+    Private Sub check_topic()
+
+        Dim con As New SqlConnection(cs)
+        con.Open()
+        str = "Select count(*)from Result_tb where Topic='" & topictxt_label.Text & "'"
+        com = New SqlCommand(Str, con)
+        Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
+        con.Close()
+        If count > 0 Then
+            add_score()
+        Else
+            insert_new_socre_for_new_topic()
+
+        End If
+    End Sub
+    Private Sub insert_new_socre_for_new_topic()
+        Try
+            dbaccessconnection()
+            con.Open()
+            cmd.CommandText = "insert into Result_tb(Username,Subject,Topic,Score)values
+                                                 ('" & username_lbl.Text & "','" & addQ_sub_txt.Text & "','" & topic_Txt.Text & "','" & userscore.Text & "')"
+
+
+            cmd.ExecuteNonQuery()
+            con.Close()
+            'MessageBox.Show("Data Inserted")
+        Catch ex As Exception
+            MsgBox("Data Inserted Failed because " & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        fillcombo_quetionid_fornext()
+    End Sub
+
+
+
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        get_next_value_combo()
+        change_difficulty()
+        topic_Txt.Enabled = True
+
     End Sub
 End Class

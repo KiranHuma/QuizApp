@@ -35,8 +35,8 @@ Public Class AddQuestionFrm
         Try
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "insert into questionsTb(Qno,question,option1,option2,option3,option4,answer,Topic,difficulty,score,photo)values
-                                                 ('" & question_id.Text & "','" & question_txt.Text & "','" & op1_Txt.Text & "','" & op2_Txt.Text & "','" & op3_Txt.Text & "','" & op4_Txt.Text & "','" & ans_Txt.Text & "','" & topic_Txt.Text & "','" & difficulty_Txt.Text & "','" & score_txt.Text & "',@photo)"
+            cmd.CommandText = "insert into questionsTb(Qno,question,option1,option2,option3,option4,answer,Q_Subject,Topic,difficulty,score,photo)values
+                                                 ('" & question_id.Text & "','" & question_txt.Text & "','" & op1_Txt.Text & "','" & op2_Txt.Text & "','" & op3_Txt.Text & "','" & op4_Txt.Text & "','" & ans_Txt.Text & "','" & Subject_text.Text & "','" & topic_Txt.Text & "','" & difficulty_Txt.Text & "','" & score_txt.Text & "',@photo)"
 
             Dim ms As New MemoryStream()
             Dim bmpImage As New Bitmap(photo.Image)
@@ -140,7 +140,7 @@ Public Class AddQuestionFrm
     Private Sub edit()
         Try
             con.Open()
-            cmd.CommandText = ("UPDATE questionsTb SET  question= '" & question_txt.Text & "', option1= '" & op1_Txt.Text & "',option2= '" & op2_Txt.Text & "',option3= '" & op3_Txt.Text & "',option4= '" & op4_Txt.Text & "',answer= '" & ans_Txt.Text & "', Topic= '" & topic_Txt.Text & "',difficulty= '" & difficulty_Txt.Text & "', score='" & score_txt.Text & "', photo=@photo where Qno=" & question_id.Text & "")
+            cmd.CommandText = ("UPDATE questionsTb SET  question= '" & question_txt.Text & "', option1= '" & op1_Txt.Text & "',option2= '" & op2_Txt.Text & "',option3= '" & op3_Txt.Text & "',option4= '" & op4_Txt.Text & "',answer= '" & ans_Txt.Text & "',Q_Subject= '" & Subject_text.Text & "', Topic= '" & topic_Txt.Text & "',difficulty= '" & difficulty_Txt.Text & "', score='" & score_txt.Text & "', photo=@photo where Qno=" & question_id.Text & "")
             Dim ms As New MemoryStream()
             Dim bmpImage As New Bitmap(photo.Image)
             bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)

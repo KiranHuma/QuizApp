@@ -19,7 +19,7 @@ Public Class QuestionRecords
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select * from questionsTb where Topic like '" & category_searchtxt.Text & "%'"
+            str = "Select * from questionsTb where Q_Subject like '" & category_searchtxt.Text & "%'"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -29,7 +29,7 @@ Public Class QuestionRecords
             questiondate_grid.DataMember = "questionsTb"
             questiondate_grid.Visible = True
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Topic Name Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.Dispose()
         End Try
     End Sub
@@ -74,7 +74,7 @@ Public Class QuestionRecords
             questiondate_grid.DataSource = dt
             questiondate_grid.Refresh()
         Catch ex As Exception
-            MessageBox.Show("Failed:Retrieving Services Data" & ex.Message)
+            MessageBox.Show("Failed:Retrieving Data" & ex.Message)
             Me.Dispose()
         End Try
     End Sub
@@ -90,13 +90,14 @@ Public Class QuestionRecords
             AddQuestionFrm.op3_Txt.Text = questiondate_grid.CurrentRow.Cells(4).Value.ToString
             AddQuestionFrm.op4_Txt.Text = questiondate_grid.CurrentRow.Cells(5).Value.ToString
             AddQuestionFrm.ans_Txt.Text = questiondate_grid.CurrentRow.Cells(6).Value.ToString
-            AddQuestionFrm.topic_Txt.Text = questiondate_grid.CurrentRow.Cells(7).Value.ToString
-            AddQuestionFrm.difficulty_Txt.Text = questiondate_grid.CurrentRow.Cells(8).Value.ToString
-            AddQuestionFrm.score_txt.Text = questiondate_grid.CurrentRow.Cells(9).Value.ToString
+            AddQuestionFrm.Subject_text.Text = questiondate_grid.CurrentRow.Cells(7).Value.ToString
+            AddQuestionFrm.topic_Txt.Text = questiondate_grid.CurrentRow.Cells(8).Value.ToString
+            AddQuestionFrm.difficulty_Txt.Text = questiondate_grid.CurrentRow.Cells(9).Value.ToString
+            AddQuestionFrm.score_txt.Text = questiondate_grid.CurrentRow.Cells(10).Value.ToString
             ' Image()
             Dim i As Integer
             i = questiondate_grid.CurrentRow.Index
-            Dim bytes As [Byte]() = (questiondate_grid.Item(10, i).Value)
+            Dim bytes As [Byte]() = (questiondate_grid.Item(11, i).Value)
             Dim ms As New MemoryStream(bytes)
             AddQuestionFrm.photo.Image = Image.FromStream(ms)
             AddQuestionFrm.Show()
@@ -111,10 +112,18 @@ Public Class QuestionRecords
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        search_txt()
+        'search_txt()
     End Sub
 
     Private Sub QuestionRecords_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         question_getdata()
+    End Sub
+
+    Private Sub category_searchtxt_TextChanged(sender As Object, e As EventArgs) Handles category_searchtxt.TextChanged
+        search_txt()
+    End Sub
+
+    Private Sub questiondate_grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles questiondate_grid.CellContentClick
+
     End Sub
 End Class

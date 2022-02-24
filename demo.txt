@@ -1,0 +1,28 @@
+I work on forms indiviually so there may be errors.because it is not complete
+
+lets check login
+
+userid is 5 because i already add four users
+
+i will add same user 
+
+see red line.so ,username should be unique
+
+see that password is save in cipher form
+
+remember password 7890
+
+lets login with new user
+
+this is a quiz form
+
+it is not complete yet.functions are all ready but i am aranging them on buttons
+
+if the answer is wrong they will show in grid
+the correct answer was world wide web
+
+if the answer correct then score will be add.
+
+now checking how to add question
+
+question will be adding by admin

@@ -120,6 +120,12 @@
     <Compile Include="SignupFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SubjectFrm.Designer.vb">
+      <DependentUpon>SubjectFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddQuestionFrm.resx">
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignupFrm.resx">
       <DependentUpon>SignupFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectFrm.resx">
+      <DependentUpon>SubjectFrm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
