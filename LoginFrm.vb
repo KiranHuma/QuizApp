@@ -97,7 +97,7 @@ Public Class Login
             sda.Fill(dt)
             If dt.Rows(0)(0).ToString() = "1" Then
                 Me.Hide()
-                QuizFrm.username_lbl.Text = Me.txtUsername.Text
+                ' QuizFrm.username_lbl.Text = Me.txtUsername.Text
                 SubjectFrm.username_lbl.Text = Me.txtUsername.Text
                 SubjectFrm.Show()
             Else

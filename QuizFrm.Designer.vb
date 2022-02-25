@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class QuizFrm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class QuizFrm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(QuizFrm))
         Me.Label11 = New System.Windows.Forms.Label()
@@ -45,7 +45,6 @@ Partial Class QuizFrm
         Me.photo = New System.Windows.Forms.PictureBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Dbquestion_score_txt = New System.Windows.Forms.Label()
-        Me.difficulty_Txt = New System.Windows.Forms.ComboBox()
         Me.strtbtn = New System.Windows.Forms.Button()
         Me.topic_Txt = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -59,16 +58,17 @@ Partial Class QuizFrm
         Me.Label8 = New System.Windows.Forms.Label()
         Me.addQ_sub_txt = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.username_lbl = New System.Windows.Forms.Label()
+        Me.Qusername_lbl = New System.Windows.Forms.Label()
         Me.userscore = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.difficulty_Txt = New System.Windows.Forms.TextBox()
         CType(Me.photo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(45, 104)
+        Me.Label11.Location = New System.Drawing.Point(64, 104)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(61, 17)
         Me.Label11.TabIndex = 48
@@ -78,7 +78,7 @@ Partial Class QuizFrm
         '
         Me.Label10.AutoSize = True
         Me.Label10.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label10.Location = New System.Drawing.Point(45, 132)
+        Me.Label10.Location = New System.Drawing.Point(53, 132)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(72, 17)
         Me.Label10.TabIndex = 46
@@ -106,11 +106,11 @@ Partial Class QuizFrm
         Me.question_id.BackColor = System.Drawing.Color.Indigo
         Me.question_id.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.question_id.ForeColor = System.Drawing.Color.White
-        Me.question_id.Location = New System.Drawing.Point(111, 195)
+        Me.question_id.Location = New System.Drawing.Point(103, 190)
         Me.question_id.Name = "question_id"
         Me.question_id.Size = New System.Drawing.Size(36, 15)
         Me.question_id.TabIndex = 39
-        Me.question_id.Text = "1"
+        Me.question_id.Text = "9"
         '
         'Label6
         '
@@ -150,9 +150,8 @@ Partial Class QuizFrm
         '
         'nextBtn
         '
-        Me.nextBtn.Enabled = False
         Me.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.nextBtn.Location = New System.Drawing.Point(585, 484)
+        Me.nextBtn.Location = New System.Drawing.Point(447, 483)
         Me.nextBtn.Name = "nextBtn"
         Me.nextBtn.Size = New System.Drawing.Size(94, 33)
         Me.nextBtn.TabIndex = 29
@@ -162,7 +161,7 @@ Partial Class QuizFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(45, 193)
+        Me.Label1.Location = New System.Drawing.Point(12, 190)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 17)
         Me.Label1.TabIndex = 28
@@ -272,25 +271,16 @@ Partial Class QuizFrm
         Me.Dbquestion_score_txt.AutoSize = True
         Me.Dbquestion_score_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dbquestion_score_txt.ForeColor = System.Drawing.Color.Chartreuse
-        Me.Dbquestion_score_txt.Location = New System.Drawing.Point(64, 269)
+        Me.Dbquestion_score_txt.Location = New System.Drawing.Point(455, 162)
         Me.Dbquestion_score_txt.Name = "Dbquestion_score_txt"
         Me.Dbquestion_score_txt.Size = New System.Drawing.Size(24, 25)
         Me.Dbquestion_score_txt.TabIndex = 61
         Me.Dbquestion_score_txt.Text = "0"
         '
-        'difficulty_Txt
-        '
-        Me.difficulty_Txt.Items.AddRange(New Object() {"Easy", "Difficult", "Medium"})
-        Me.difficulty_Txt.Location = New System.Drawing.Point(163, 101)
-        Me.difficulty_Txt.Name = "difficulty_Txt"
-        Me.difficulty_Txt.Size = New System.Drawing.Size(190, 24)
-        Me.difficulty_Txt.TabIndex = 62
-        '
         'strtbtn
         '
-        Me.strtbtn.Enabled = False
         Me.strtbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.strtbtn.Location = New System.Drawing.Point(485, 484)
+        Me.strtbtn.Location = New System.Drawing.Point(347, 483)
         Me.strtbtn.Name = "strtbtn"
         Me.strtbtn.Size = New System.Drawing.Size(94, 33)
         Me.strtbtn.TabIndex = 65
@@ -299,7 +289,6 @@ Partial Class QuizFrm
         '
         'topic_Txt
         '
-        Me.topic_Txt.Enabled = False
         Me.topic_Txt.FormattingEnabled = True
         Me.topic_Txt.Location = New System.Drawing.Point(162, 132)
         Me.topic_Txt.Name = "topic_Txt"
@@ -322,7 +311,7 @@ Partial Class QuizFrm
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Chartreuse
-        Me.Label13.Location = New System.Drawing.Point(43, 228)
+        Me.Label13.Location = New System.Drawing.Point(359, 162)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(71, 25)
         Me.Label13.TabIndex = 68
@@ -391,7 +380,7 @@ Partial Class QuizFrm
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(388, 104)
+        Me.Label8.Location = New System.Drawing.Point(70, 64)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(55, 17)
         Me.Label8.TabIndex = 80
@@ -400,46 +389,59 @@ Partial Class QuizFrm
         'addQ_sub_txt
         '
         Me.addQ_sub_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.addQ_sub_txt.Location = New System.Drawing.Point(449, 101)
+        Me.addQ_sub_txt.Location = New System.Drawing.Point(163, 64)
         Me.addQ_sub_txt.Multiline = True
         Me.addQ_sub_txt.Name = "addQ_sub_txt"
         Me.addQ_sub_txt.Size = New System.Drawing.Size(130, 22)
         Me.addQ_sub_txt.TabIndex = 79
+        Me.addQ_sub_txt.Text = "computer"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(92, 26)
+        Me.Label15.Location = New System.Drawing.Point(100, 21)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(25, 17)
         Me.Label15.TabIndex = 82
         Me.Label15.Text = "Hi,"
         '
-        'username_lbl
+        'Qusername_lbl
         '
-        Me.username_lbl.AutoSize = True
-        Me.username_lbl.Location = New System.Drawing.Point(159, 24)
-        Me.username_lbl.Name = "username_lbl"
-        Me.username_lbl.Size = New System.Drawing.Size(73, 17)
-        Me.username_lbl.TabIndex = 83
-        Me.username_lbl.Text = "Username"
+        Me.Qusername_lbl.AutoSize = True
+        Me.Qusername_lbl.Location = New System.Drawing.Point(159, 24)
+        Me.Qusername_lbl.Name = "Qusername_lbl"
+        Me.Qusername_lbl.Size = New System.Drawing.Size(59, 17)
+        Me.Qusername_lbl.TabIndex = 83
+        Me.Qusername_lbl.Text = "huma31"
         '
         'userscore
         '
+        Me.userscore.BackColor = System.Drawing.Color.Indigo
+        Me.userscore.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.userscore.ForeColor = System.Drawing.Color.White
         Me.userscore.Location = New System.Drawing.Point(559, 49)
         Me.userscore.Name = "userscore"
-        Me.userscore.Size = New System.Drawing.Size(100, 22)
+        Me.userscore.Size = New System.Drawing.Size(100, 15)
         Me.userscore.TabIndex = 84
         '
-        'Button3
+        'Button4
         '
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(528, 129)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(94, 28)
-        Me.Button3.TabIndex = 85
-        Me.Button3.Text = "Add Topic"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Location = New System.Drawing.Point(547, 483)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(112, 33)
+        Me.Button4.TabIndex = 86
+        Me.Button4.Text = "Finish"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'difficulty_Txt
+        '
+        Me.difficulty_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.difficulty_Txt.Location = New System.Drawing.Point(162, 99)
+        Me.difficulty_Txt.Multiline = True
+        Me.difficulty_Txt.Name = "difficulty_Txt"
+        Me.difficulty_Txt.Size = New System.Drawing.Size(130, 22)
+        Me.difficulty_Txt.TabIndex = 87
         '
         'QuizFrm
         '
@@ -447,9 +449,10 @@ Partial Class QuizFrm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Indigo
         Me.ClientSize = New System.Drawing.Size(1325, 542)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.difficulty_Txt)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.userscore)
-        Me.Controls.Add(Me.username_lbl)
+        Me.Controls.Add(Me.Qusername_lbl)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.addQ_sub_txt)
@@ -463,7 +466,6 @@ Partial Class QuizFrm
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.topic_Txt)
         Me.Controls.Add(Me.strtbtn)
-        Me.Controls.Add(Me.difficulty_Txt)
         Me.Controls.Add(Me.Dbquestion_score_txt)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.photo)
@@ -518,7 +520,6 @@ Partial Class QuizFrm
     Friend WithEvents photo As PictureBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Dbquestion_score_txt As Label
-    Friend WithEvents difficulty_Txt As ComboBox
     Friend WithEvents strtbtn As Button
     Friend WithEvents topic_Txt As ComboBox
     Friend WithEvents Label12 As Label
@@ -532,7 +533,8 @@ Partial Class QuizFrm
     Friend WithEvents Label8 As Label
     Friend WithEvents addQ_sub_txt As TextBox
     Friend WithEvents Label15 As Label
-    Friend WithEvents username_lbl As Label
+    Friend WithEvents Qusername_lbl As Label
     Friend WithEvents userscore As TextBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents difficulty_Txt As TextBox
 End Class

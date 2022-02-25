@@ -34,14 +34,14 @@ Public Class SubjectFrm
 
         question_getdata()
         get_score()
-        change_difficulty()
+        'change_difficulty()
     End Sub
     Private Sub change_difficulty()
-        If userscore.Text >= 0 And userscore.Text <= 30 Then
+        If userscore.Text < 30 Then
             QuizFrm.difficulty_Txt.Text = "Easy"
-        ElseIf userscore.Text >= 30 And userscore.Text <= 60 Then
+        ElseIf userscore.Text >= 31 And userscore.Text <= 61 Then
             QuizFrm.difficulty_Txt.Text = "Medium"
-        ElseIf userscore.Text >= 60 Then
+        ElseIf userscore.Text >= 61 Then
             QuizFrm.difficulty_Txt.Text = "Difficult"
         End If
     End Sub
@@ -103,11 +103,16 @@ Public Class SubjectFrm
 
                 QuizFrm.addQ_sub_txt.Text = Me.addQ_subb_txt.Text
                 QuizFrm.userscore.Text = Me.userscore.Text
-                QuizFrm.Show()
+                QuizFrm.Qusername_lbl.Text = Me.username_lbl.Text
+                QuizFrm.ShowDialog()
             End If
         Catch ex As Exception
             MsgBox("Failed:GridCick " & ex.Message)
             Me.Dispose()
         End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        get_score()
     End Sub
 End Class
