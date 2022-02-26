@@ -80,13 +80,12 @@ Public Class QuizFrm
     End Sub
     Private Sub get_image()
         Try
-            con.Close()
-            'dbaccessconnection()
-            con.Open()
 
 
-            con.ConnectionString = cs
-            da = New SqlDataAdapter("select photo from questionsTb where Qno = '" & question_id.Text & "'", con)
+
+            Dim conn As New System.Data.SqlClient.SqlConnection(cs)
+            conn.Open()
+            da = New SqlDataAdapter("select photo from questionsTb where Qno = '" & question_id.Text & "'", conn)
             da.Fill(ds)
             Dim saveImage As IO.MemoryStream
             Dim imgByte As Byte()
@@ -95,7 +94,7 @@ Public Class QuizFrm
                 saveImage = New IO.MemoryStream(imgByte)
                 photo.Image = Image.FromStream(saveImage)
             End If
-            con.Close()
+            conn.Close()
 
         Catch ex As Exception
             MsgBox("Get image in first row ID Failed because " & ex.Message)
@@ -298,15 +297,15 @@ Public Class QuizFrm
         '  MsgBox("good")
         change_difficulty()
         get_first_row_Id()
-        '  FillCombo()
-        ' fillcombo_quetionid_fornext()
+        FillCombo()
+        fillcombo_quetionid_fornext()
 
-        ' If ComboBox1.SelectedIndex < ComboBox1.Items.Count - 1 Then
-        ' ComboBox1.SelectedIndex = ComboBox1.SelectedIndex + 1
+        If ComboBox1.SelectedIndex < ComboBox1.Items.Count - 1 Then
+            ComboBox1.SelectedIndex = ComboBox1.SelectedIndex + 1
 
-        '  get_next_topic_combo()
-        ' change_difficulty()
-        '  End If
+            get_next_topic_combo()
+            ' change_difficulty()
+        End If
 
     End Sub
     Private Sub correct_answer()
