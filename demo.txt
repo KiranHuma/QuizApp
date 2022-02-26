@@ -1,28 +1,46 @@
-I work on forms indiviually so there may be errors.because it is not complete
+there are two grid
 
-lets check login
+left show the previous results.
+if you want to continue
+from previous 
+then select the topic from previous record
+and subject from right hand grid
 
-userid is 5 because i already add four users
+below 30 easy question will show
+ther is only 1 easy qeustion
+of computer
 
-i will add same user 
+click finish to end the quiz
 
-see red line.so ,username should be unique
+now the score for that topic will update.See score is now 4
 
-see that password is save in cipher form
+now check for medium range.I will select topic with 
+above 30 score 
 
-remember password 7890
+after 30 score the medium type question will show
+after 60 score difficult question will show
 
-lets login with new user
+the right answer was right1 so marks will not add
 
-this is a quiz form
+its right answer is right4 then score will add.
+click finish,If question not moving to next
+click finish
 
-it is not complete yet.functions are all ready but i am aranging them on buttons
+check score
 
-if the answer is wrong they will show in grid
-the correct answer was world wide web
+score is updated for that user.now i will login again
 
-if the answer correct then score will be add.
+then notice the score
 
-now checking how to add question
+Now if i want to start fresh with 0 score then 
+i will not select the topic
+the quiz will start from easy question of selected topic
 
-question will be adding by admin
+the score for that topic will again go to 2
+
+if the topic is new with different subject
+ i am choosing digital marketing
+check that user has not attempt this topic in previous record
+
+there is only 1 question of digital marketing of easy 
+now we will check previous record

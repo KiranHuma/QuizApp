@@ -55,6 +55,7 @@ Public Class QuizFrm
     Private Sub QuizFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbaccessconnection()
         op1_Txt.Checked = False
+        change_difficulty()
     End Sub
     Private Sub FillCombo()
         Try
@@ -295,6 +296,8 @@ Public Class QuizFrm
     Private Sub strtbtn_Click(sender As Object, e As EventArgs) Handles strtbtn.Click
         op1_Txt.Checked = False
         '  MsgBox("good")
+
+
         change_difficulty()
         get_first_row_Id()
         FillCombo()
@@ -432,30 +435,56 @@ Public Class QuizFrm
     End Sub
     Private Sub update_score()
         Try
-            con.Open()
-            cmd.CommandText = ("UPDATE Result_tb SET Score= '" & userscore.Text & "' where Topic='" & topic_Txt.Text & "'")
 
+
+
+            con.Open()
+            cmd = New SqlCommand("UPDATE Result_tb SET Score= @Score where Topic=@Topic AND Username=@Username", con)
+            cmd.Parameters.AddWithValue("@Score", userscore.Text)
+            cmd.Parameters.AddWithValue("@Topic", topic_Txt.Text)
+            cmd.Parameters.AddWithValue("@Username", Qusername_lbl.Text)
             cmd.ExecuteNonQuery()
 
-            MessageBox.Show("Data updated")
+            MessageBox.Show("Finish")
             con.Close()
         Catch ex As Exception
             MessageBox.Show("Data Not Updated" & ex.Message)
             Me.Dispose()
         End Try
     End Sub
-    Private Sub check_topic()
 
-        Dim con As New SqlConnection(cs)
-        con.Open()
-        str = "Select count(*)from Result_tb where Topic='" & topictxt_label.Text & "'"
-        com = New SqlCommand(str, con)
-        Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
-        con.Close()
-        If count > 0 Then
+    Private Sub check_topic1()
+        Dim connStr As String = cs
+        Dim query As String = "SELECT count(*) FROM Result_tb  where Topic='" & topictxt_label.Text & "' AND Username='" & Qusername_lbl.Text & "'"
+        Using conn As New SqlConnection(connStr)
+            Using cmd As New SqlCommand()
+                With cmd
+                    .Connection = conn
+                    .CommandText = query
+                    .CommandType = CommandType.Text
+                End With
+                Try
+                    conn.Open()
+                    Dim count As Int16 = Convert.ToInt16(cmd.ExecuteScalar())
+                    '  MsgBox(count.ToString()
+                    finish_label.Text = count.ToString()
+
+
+                Catch ex As Exception
+
+                    MessageBox.Show(ex.Message)
+                    Me.Dispose()
+                End Try
+            End Using
+        End Using
+    End Sub
+    Private Sub check_topic()
+        check_topic1()
+
+        If finish_label.Text > 0 Then
             update_score()
-            ' ElseIf count < 0 Then
-            '  insert_new_socre_for_new_topic()
+        ElseIf finish_label.Text = 0 Then
+            insert_new_socre_for_new_topic()
 
         End If
     End Sub
@@ -464,18 +493,23 @@ Public Class QuizFrm
             dbaccessconnection()
             con.Open()
             cmd.CommandText = "insert into Result_tb(Username,Subject,Topic,Score)values
-                                                 ('" & Qusername_lbl.Text & "','" & addQ_sub_txt.Text & "','" & topic_Txt.Text & "','" & userscore.Text & "')"
+                                                 (@Username,@Subject,@Topic,@Score)"
+            cmd.Parameters.AddWithValue("@Username", Qusername_lbl.Text)
+            cmd.Parameters.AddWithValue("@Subject", addQ_sub_txt.Text)
+            cmd.Parameters.AddWithValue("@Topic", topic_Txt.Text)
+            cmd.Parameters.AddWithValue("@Score", userscore.Text)
 
             cmd.ExecuteNonQuery()
             con.Close()
-            'MessageBox.Show("Data Inserted")
+            MessageBox.Show("Quiz Finish")
         Catch ex As Exception
             MsgBox("Data Inserted Failed because " & ex.Message)
             Me.Dispose()
         End Try
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        getvaluedb()
+        check_topic()
+
 
 
     End Sub
@@ -495,8 +529,9 @@ Public Class QuizFrm
 
     End Sub
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
-        'check_topic()
+        check_topic()
         End
+
     End Sub
     Private Sub Diffcultylbl_TextChanged(sender As Object, e As EventArgs) Handles Diffcultylbl.TextChanged
         ' op1_Txt.Checked = False

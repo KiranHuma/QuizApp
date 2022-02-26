@@ -30,11 +30,27 @@ Public Class SubjectFrm
             Me.Dispose()
         End Try
     End Sub
+    Private Sub question_getdataof_result()
+        Try
+            Dim con As New SqlConnection(cs)
+            con.Open()
+            Dim da As New SqlDataAdapter("Select * from Result_tb where Username='" & username_lbl.Text & "'", con)
+            Dim dt As New DataTable
+            da.Fill(dt)
+            source2.DataSource = dt
+            DataGridView1.DataSource = dt
+            DataGridView1.Refresh()
+        Catch ex As Exception
+            MessageBox.Show("Failed:Retrieving Data" & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
     Private Sub SubjectFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         question_getdata()
-        get_score()
-        'change_difficulty()
+        question_getdataof_result()
+        ' get_score()
+
     End Sub
     Private Sub change_difficulty()
         If userscore.Text < 30 Then
@@ -59,6 +75,25 @@ Public Class SubjectFrm
             subject_grid.DataSource = ds
             subject_grid.DataMember = "questionsTb"
             subject_grid.Visible = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Failed: Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Dispose()
+        End Try
+    End Sub
+    Private Sub search_txt_topic()
+        Dim str As String
+        Try
+            Dim con As New SqlConnection(cs)
+            con.Open()
+            str = "Select * from Result_tb where Topic like '" & TextBox1.Text & "%'"
+            cmd = New SqlCommand(str, con)
+            da = New SqlDataAdapter(cmd)
+            ds = New DataSet
+            da.Fill(ds, "Result_tb")
+            con.Close()
+            DataGridView1.DataSource = ds
+            DataGridView1.DataMember = "Result_tb"
+            DataGridView1.Visible = True
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Failed: Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.Dispose()
@@ -100,19 +135,27 @@ Public Class SubjectFrm
             If addQ_subb_txt.Text = "" Then
                 MsgBox("Select Subject")
             Else
-
+                userscore.Text = 0
                 QuizFrm.addQ_sub_txt.Text = Me.addQ_subb_txt.Text
                 QuizFrm.userscore.Text = Me.userscore.Text
                 QuizFrm.Qusername_lbl.Text = Me.username_lbl.Text
                 QuizFrm.ShowDialog()
             End If
         Catch ex As Exception
-            MsgBox("Failed:GridCick " & ex.Message)
+            MsgBox("Failed:GridCick of subject" & ex.Message)
             Me.Dispose()
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        get_score()
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        search_txt_topic()
+    End Sub
+
+    Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
+        userscore.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString
     End Sub
 End Class

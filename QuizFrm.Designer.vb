@@ -78,15 +78,17 @@ Partial Class QuizFrm
         '
         Me.Label10.AutoSize = True
         Me.Label10.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label10.Location = New System.Drawing.Point(53, 132)
+        Me.Label10.Location = New System.Drawing.Point(82, 135)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(72, 17)
+        Me.Label10.Size = New System.Drawing.Size(43, 17)
         Me.Label10.TabIndex = 46
-        Me.Label10.Text = "Add Topic"
+        Me.Label10.Text = "Topic"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Indigo
+        Me.Label9.ForeColor = System.Drawing.Color.Indigo
         Me.Label9.Location = New System.Drawing.Point(376, 346)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 17)
@@ -95,7 +97,9 @@ Partial Class QuizFrm
         '
         'ans_Txt
         '
+        Me.ans_Txt.BackColor = System.Drawing.Color.Indigo
         Me.ans_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ans_Txt.ForeColor = System.Drawing.Color.Indigo
         Me.ans_Txt.Location = New System.Drawing.Point(379, 375)
         Me.ans_Txt.Name = "ans_Txt"
         Me.ans_Txt.Size = New System.Drawing.Size(100, 15)
@@ -191,6 +195,8 @@ Partial Class QuizFrm
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Indigo
+        Me.Label7.ForeColor = System.Drawing.Color.Indigo
         Me.Label7.Location = New System.Drawing.Point(519, 346)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(88, 17)
@@ -199,7 +205,9 @@ Partial Class QuizFrm
         '
         'user_answer
         '
+        Me.user_answer.BackColor = System.Drawing.Color.Indigo
         Me.user_answer.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.user_answer.ForeColor = System.Drawing.Color.Indigo
         Me.user_answer.Location = New System.Drawing.Point(522, 375)
         Me.user_answer.Name = "user_answer"
         Me.user_answer.Size = New System.Drawing.Size(100, 15)
@@ -257,8 +265,9 @@ Partial Class QuizFrm
         '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.SystemColors.Info
-        Me.Button2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Button2.BackColor = System.Drawing.Color.Indigo
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ForeColor = System.Drawing.Color.Indigo
         Me.Button2.Location = New System.Drawing.Point(719, 403)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(92, 23)
@@ -289,6 +298,7 @@ Partial Class QuizFrm
         '
         'topic_Txt
         '
+        Me.topic_Txt.Enabled = False
         Me.topic_Txt.FormattingEnabled = True
         Me.topic_Txt.Location = New System.Drawing.Point(162, 132)
         Me.topic_Txt.Name = "topic_Txt"
@@ -320,8 +330,9 @@ Partial Class QuizFrm
         'finish_label
         '
         Me.finish_label.AutoSize = True
+        Me.finish_label.BackColor = System.Drawing.Color.Indigo
         Me.finish_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.finish_label.ForeColor = System.Drawing.Color.Chartreuse
+        Me.finish_label.ForeColor = System.Drawing.Color.Indigo
         Me.finish_label.Location = New System.Drawing.Point(640, 414)
         Me.finish_label.Name = "finish_label"
         Me.finish_label.Size = New System.Drawing.Size(24, 25)
@@ -331,8 +342,9 @@ Partial Class QuizFrm
         'Label14
         '
         Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Indigo
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.Chartreuse
+        Me.Label14.ForeColor = System.Drawing.Color.Indigo
         Me.Label14.Location = New System.Drawing.Point(569, 414)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(70, 25)
@@ -343,6 +355,8 @@ Partial Class QuizFrm
         'Diffcultylbl
         '
         Me.Diffcultylbl.AutoSize = True
+        Me.Diffcultylbl.BackColor = System.Drawing.Color.Indigo
+        Me.Diffcultylbl.ForeColor = System.Drawing.Color.Indigo
         Me.Diffcultylbl.Location = New System.Drawing.Point(983, 403)
         Me.Diffcultylbl.Name = "Diffcultylbl"
         Me.Diffcultylbl.Size = New System.Drawing.Size(58, 17)
@@ -352,6 +366,8 @@ Partial Class QuizFrm
         'topictxt_label
         '
         Me.topictxt_label.AutoSize = True
+        Me.topictxt_label.BackColor = System.Drawing.Color.Indigo
+        Me.topictxt_label.ForeColor = System.Drawing.Color.Indigo
         Me.topictxt_label.Location = New System.Drawing.Point(934, 403)
         Me.topictxt_label.Name = "topictxt_label"
         Me.topictxt_label.Size = New System.Drawing.Size(43, 17)
@@ -360,8 +376,9 @@ Partial Class QuizFrm
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Info
-        Me.Button1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Button1.BackColor = System.Drawing.Color.Indigo
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.Color.Indigo
         Me.Button1.Location = New System.Drawing.Point(830, 401)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -371,11 +388,15 @@ Partial Class QuizFrm
         '
         'ComboBox1
         '
+        Me.ComboBox1.BackColor = System.Drawing.Color.Indigo
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox1.ForeColor = System.Drawing.Color.Indigo
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(1047, 400)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(137, 24)
         Me.ComboBox1.TabIndex = 78
+        Me.ComboBox1.Visible = False
         '
         'Label8
         '
@@ -491,6 +512,7 @@ Partial Class QuizFrm
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "QuizFrm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "QuizFrm"
         CType(Me.photo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
