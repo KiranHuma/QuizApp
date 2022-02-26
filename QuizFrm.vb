@@ -36,30 +36,7 @@ Public Class QuizFrm
     End Sub
 
 
-    Private Sub get_image()
-        Try
-            dbaccessconnection()
-            con.Open()
 
-            ' con.ConnectionString = cs
-            da = New SqlDataAdapter("select photo from questionsTb where Qno = '" & question_id.Text & "' ", con)
-            da.Fill(ds)
-            Dim saveImage As IO.MemoryStream
-            Dim imgByte As Byte()
-            If ds.Tables.Count > 0 Then
-                imgByte = ds.Tables(0).Rows(0)("photo")
-                saveImage = New IO.MemoryStream(imgByte)
-                photo.Image = Image.FromStream(saveImage)
-            End If
-            con.Close()
-
-        Catch ex As Exception
-            Me.Dispose()
-        Finally
-            con.Close()
-        End Try
-
-    End Sub
     Private Sub change_difficulty()
         If userscore.Text >= 0 And userscore.Text < 30 Then
             difficulty_Txt.Text = "Easy"
@@ -97,18 +74,44 @@ Public Class QuizFrm
 
 
         Catch ex As Exception
-                MessageBox.Show("Failed:Retrieving and Populating " & ex.Message)
+            MessageBox.Show("Failed:Retrieving and Populating " & ex.Message)
             'Me.Dispose()
         End Try
+    End Sub
+    Private Sub get_image()
+        Try
+            con.Close()
+            'dbaccessconnection()
+            con.Open()
+
+
+            con.ConnectionString = cs
+            da = New SqlDataAdapter("select photo from questionsTb where Qno = '" & question_id.Text & "'", con)
+            da.Fill(ds)
+            Dim saveImage As IO.MemoryStream
+            Dim imgByte As Byte()
+            If ds.Tables.Count > 0 Then
+                imgByte = ds.Tables(0).Rows(0)("photo")
+                saveImage = New IO.MemoryStream(imgByte)
+                photo.Image = Image.FromStream(saveImage)
+            End If
+            con.Close()
+
+        Catch ex As Exception
+            MsgBox("Get image in first row ID Failed because " & ex.Message)
+            Me.Dispose()
+
+        End Try
+
     End Sub
     Private Sub get_first_row_Id()
         Try
             dbaccessconnection()
-            dbaccessconnection()
+            'dbaccessconnection()
 
 
 
-            Dim command As New SqlCommand("SELECT TOP 1 * FROM questionsTb where difficulty='" & difficulty_Txt.Text & "' AND Q_Subject= '" & addQ_sub_txt.Text & "'", con)
+            Dim command As New SqlCommand("SELECT TOP 1 * FROM questionsTb where Qno>= '" & question_id.Text & "'AND difficulty='" & difficulty_Txt.Text & "' AND Q_Subject= '" & addQ_sub_txt.Text & "'", con)
             con.Open()
             cmd.Parameters.Clear()
             Dim read As SqlDataReader = command.ExecuteReader()
@@ -126,16 +129,18 @@ Public Class QuizFrm
                 difficulty_Txt.Text = (read("difficulty").ToString())
                 Dbquestion_score_txt.Text = (read("score").ToString())
                 ' photo.Text = sdr("photo").ToString()
-                get_image()
+
             Loop
             read.Close()
+            get_image()
         Catch ex As Exception
-            MsgBox("Data Inserted Failed because " & ex.Message)
+            MsgBox("FirstRow ID Failed because " & ex.Message)
             Me.Dispose()
         Finally
             con.Close()
         End Try
     End Sub
+
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         End
     End Sub
@@ -292,7 +297,7 @@ Public Class QuizFrm
         op1_Txt.Checked = False
         '  MsgBox("good")
         change_difficulty()
-        '  get_first_row_Id()
+        get_first_row_Id()
         '  FillCombo()
         ' fillcombo_quetionid_fornext()
 

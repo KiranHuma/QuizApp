@@ -110,7 +110,7 @@ Partial Class QuizFrm
         Me.question_id.Name = "question_id"
         Me.question_id.Size = New System.Drawing.Size(36, 15)
         Me.question_id.TabIndex = 39
-        Me.question_id.Text = "9"
+        Me.question_id.Text = "0"
         '
         'Label6
         '
